@@ -155,8 +155,8 @@ focus_tree = {
 		icon = GFX_goal_generic_propaganda
 		prerequisite = { focus = RAJ_cripps_mission }
 		x = -2
-		y = 1
-		relative_position_id = RAJ_cripps_mission
+		y = 2
+		relative_position_id = RAJ_indian_national_congress
 
 		cost = 10
 

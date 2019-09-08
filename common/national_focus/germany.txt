@@ -668,7 +668,7 @@ focus_tree = {
 			}
 			add_tech_bonus = {
 				name = air_sup_bonus
-				bonus = 0.5
+				bonus = 1
 				uses = 1
 				category = light_air
 			}

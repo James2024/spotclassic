@@ -769,12 +769,15 @@ focus_tree = {
 
 			add_tech_bonus = {
 				name = air_bonus
-				bonus = 1
+				bonus = 2
 				uses = 1
 				category = light_air
-				category = medium_air
-				category = heavy_air
-				category = naval_air
+			}
+			add_tech_bonus = {
+				name = air_bonus
+				bonus = 2
+				uses = 1
+				category = cas_bomber
 			}
 		}
 	}

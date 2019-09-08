@@ -418,7 +418,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = GER_coal_liquidization
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 4
 		}
@@ -665,6 +665,12 @@ focus_tree = {
 				bonus = 3
 				uses = 1
 				category = air_doctrine
+			}
+			add_tech_bonus = {
+				name = air_sup_bonus
+				bonus = 0.5
+				uses = 1
+				category = light_air
 			}
 
 			if = {
@@ -2214,7 +2220,7 @@ focus_tree = {
 #		x = 0
 #		y = 1
 #		relative_position_id = GER_war_with_france
-#		cost = 10
+#		cost = 5
 #		ai_will_do = {
 #			factor = 10
 #		}
@@ -2913,12 +2919,12 @@ focus = {
 	
 	focus = {
 		id = GER_defend_the_oil
-		prerequisite = { focus = GER_synthetic_rubber }
+		prerequisite = { focus = GER_synthetic_rubber focus = GER_kdf_wagen}
 		icon = GFX_goal_generic_construct_military
 		x = -2
 		y = 1
 		relative_position_id = GER_synthetic_rubber
-		cost = 2
+		cost = 1
 		
 		bypass = {
 			custom_trigger_tooltip =  {
@@ -2948,7 +2954,7 @@ focus = {
 					50 = {
 						add_building_construction = {
 							type = anti_air_building
-							level = 1
+							level = 2
 							instant_build = yes
 						}
 					}
@@ -2983,21 +2989,21 @@ focus = {
 					54 = {
 						add_building_construction = {
 							type = anti_air_building
-							level = 1
+							level = 2
 							instant_build = yes
 						}
 					}
 					66 = {
 						add_building_construction = {
 							type = anti_air_building
-							level = 1
+							level = 2
 							instant_build = yes
 						}
 					}
 					58 = {
 						add_building_construction = {
 							type = anti_air_building
-							level = 1
+							level = 2
 							instant_build = yes
 						}
 					}					

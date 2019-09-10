@@ -9535,6 +9535,379 @@ focus = {
 		}
 	}
 	focus = {
+		id = ITA_greece_friend
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = ITA_italy_first }
+		mutually_exclusive = { focus = ITA_greece_war_goal focus = ITA_turkey_friend }
+		x = 1
+		y = 3
+		relative_position_id = ITA_italy_first
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			country_exists = GRE
+			NOT = {
+				has_war_with = GRE
+			}
+			has_government = fascism
+		}
+
+		bypass = {
+			NOT = { country_exists = GRE }
+		}
+
+		completion_reward = {
+			GRE = {
+				add_opinion_modifier = { target = ITA modifier = ita_diplomacy_focus }
+				if = {
+					limit = { ROOT = { has_government = fascism } }
+					add_timed_idea = { idea = fascist_influence days = 1095 }
+				}
+				if = {
+					limit = { ROOT = { has_government = democratic } }
+					add_timed_idea = { idea = democratic_influence days = 1095 }
+				}
+				if = {
+					limit = { ROOT = { has_government = communism } }
+					add_timed_idea = { idea = communist_influence days = 1095 }
+				}
+				country_event = { id = generic.1 }
+			}
+
+			hidden_effect = {
+				news_event = { hours = 6 id = news.187 } 
+			}
+		}
+	}
+
+	focus = {
+		id = ITA_claims_on_turkey
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = ITA_greece_friend }
+		available = {
+			TUR = {
+				owns_state = 342
+			}
+		}
+		will_lead_to_war_with = TUR
+		x = 0
+		y = 1
+		relative_position_id = ITA_greece_friend
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}	
+		completion_reward = {
+			if = {
+				limit = {
+					is_in_faction_with = GRE
+					TUR = { owns_state = 339 }
+				}
+
+				GRE = { country_event = greece.4 }
+			}
+			create_wargoal = {
+			target = TUR
+			type = take_state_focus
+			generator = { 342 }
+			}
+
+			hidden_effect = {
+				news_event = { hours = 6 id = news.189 }
+			}
+		}
+	}
+	focus = {
+		id = ITA_turkey_friend
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = ITA_italy_first }
+		mutually_exclusive = { focus = ITA_greece_friend }
+		x = 3
+		y = 3
+		relative_position_id = ITA_italy_first
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			country_exists = TUR
+			NOT = {
+				has_war_with = TUR
+			}
+			has_government = fascism
+		}
+
+		completion_reward = {
+			TUR = {
+				add_opinion_modifier = { target = ITA modifier = ita_diplomacy_focus }
+				if = {
+					limit = { ROOT = { has_government = fascism } }
+					add_timed_idea = { idea = fascist_influence days = 1095 }
+				}
+				if = {
+					limit = { ROOT = { has_government = democratic } }
+					add_timed_idea = { idea = democratic_influence days = 1095 }
+				}
+				if = {
+					limit = { ROOT = { has_government = communism } }
+					add_timed_idea = { idea = communist_influence days = 1095 }
+				}
+				country_event = { id = generic.1 }
+			}
+			hidden_effect = {
+				news_event = {
+					hours = 6 id = news.188
+				}
+			}
+		}
+	}
+	focus = {
+		id = ITA_go_after_france
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = ITA_italy_first }
+		available = {
+			country_exists = FRA
+			FRA = {
+				OR = {
+					owns_state = 1
+					owns_state = 735
+					owns_state = 458
+				}
+			}
+			NOT = { is_in_faction_with = FRA }
+		}
+		will_lead_to_war_with = FRA
+		x = 2
+		y = 1
+		relative_position_id = ITA_italy_first
+		cost = 10
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 1.5
+				ai_irrationality > 25
+			}
+
+			modifier = {
+				factor = 1.5
+				ai_irrationality > 30
+			}
+
+			modifier = {
+				factor = 2
+				ai_irrationality > 35
+			}
+		}			
+		completion_reward = {
+			create_wargoal = {
+				target = FRA
+				type = take_state_focus
+				generator = { 1 735 458 }
+			}
+		}
+	}	
+	focus = {
+		id = ITA_support_nationalist_spain
+		icon = GFX_goal_generic_military_deal
+		available = {
+			any_other_country = {
+				original_tag = SPR
+				has_government = fascism
+				has_volunteers_amount_from = {
+					tag = ITA
+					count > 1
+				}
+			}
+		}
+		cancel = {
+			SPR = {
+				has_civil_war = no
+			}
+		}
+		cancel_if_invalid = no
+		x = 5
+		y = 1
+		relative_position_id = ITA_victoryinETH
+		cost = 4.4
+		ai_will_do = {
+			factor = 1
+		}	
+		completion_reward = {
+			random_other_country = {
+				limit = {
+					original_tag = SPR
+					has_government = fascism
+				}
+				add_opinion_modifier = { target = ITA modifier = ita_supported_spain_civil_war }
+			}
+		}
+	}
+
+	focus = {
+		id = ITA_demand_balearic_islands
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = ITA_support_nationalist_spain }
+		mutually_exclusive = { focus = ITA_spanish_italian_faction }
+		available = {
+			any_other_country = {
+				original_tag = SPR
+				has_government = fascism
+				has_war = no
+				owns_state = 177
+			}
+			is_puppet = no
+		}
+		cancel = {
+			any_other_country = {
+				original_tag = SPR
+				has_government = fascism
+				has_war_with = ROOT
+				owns_state = 177
+			}
+		}
+		x = 1
+		y = 3
+		relative_position_id = ITA_support_nationalist_spain
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}	
+		completion_reward = {
+			random_other_country = {
+				limit = {
+					owns_state = 177
+				}
+				country_event = { id = italy.9 }
+			}
+		}
+	}
+		focus = {
+		id = ITA_anti_uk_war_goals
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = ITA_italy_first }	
+		available = {
+			NOT = { is_in_faction_with = ENG }
+		}	
+		bypass = {
+			OR = {
+				has_war_with = ENG
+				is_in_faction_with = GER
+				NOT = { country_exists = ENG }
+			}
+		}
+		will_lead_to_war_with = ENG
+		x = 0
+		y = 1
+		relative_position_id = ITA_italy_first
+		cost = 10
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 1.5
+				ai_irrationality > 25
+			}
+
+			modifier = {
+				factor = 1.5
+				ai_irrationality > 30
+			}
+
+			modifier = {
+				factor = 2
+				ai_irrationality > 35
+			}
+		}	
+		completion_reward = {
+			create_wargoal = {
+				type = take_state_focus
+				target = ENG
+				generator = { 118 453 116 183 } # Gibraltar, Suez, Malta, Cyprus
+			}
+		}
+	}
+	focus = {
+		id = ITA_italy_first
+		icon = GFX_focus_generic_italy_first
+		available = {
+			is_subject = no
+			NOT = { has_war_with = BUL }
+			NOT = { is_in_faction_with = GER }
+			NOT = { is_in_faction_with = ENG }
+			OR = {
+				owns_state = 44
+				owns_state = 102
+			}
+			BUL = {
+				is_in_faction = no
+				is_subject = no
+			}
+		}
+		bypass = {
+			FRA = { has_completed_focus = FRA_woo_italy }
+			is_in_faction_with = FRA
+		}
+		cancel = {
+			is_in_faction_with = GER
+		}
+		x = 1
+		y = 1
+		relative_position_id = ITA_bulgaria_friend
+		cost = 10
+		ai_will_do = {
+			factor = 2.5
+
+			modifier = {
+				factor = 2
+				ai_irrationality > 20
+			}
+
+			modifier = {
+				factor = 2
+				ai_irrationality > 30
+			}
+
+			modifier = {
+				factor = 2
+				ai_irrationality > 35
+			}
+		}	
+		completion_reward = {
+			add_political_power = 120
+			set_rule = { can_create_factions = yes }
+			create_faction = "italy_empire_faction"
+
+			if = {
+				limit = {
+					BUL = { 
+						is_ai = yes
+						is_puppet = no
+					}					
+				}
+				add_to_faction = BUL
+				BUL = {
+					add_ai_strategy = {
+						type = alliance
+						id = "ITA"
+						value = 200
+					}
+				}
+			}
+			YUG = {
+				add_opinion_modifier = { target = ITA modifier = ita_diplomacy_focus }
+				# REVISIT Possibly clear old negative modifier if Slovenia and Dalmatia were taken
+			}
+			hidden_effect = {
+				news_event = { hours = 6 id = news.185 }
+			}
+		}
+	}
+	
+	focus = {
 		id = GER_turkey_friend
 		icon = GFX_goal_generic_improve_relations
 		prerequisite = { focus = GER_china_friend }
@@ -9624,6 +9997,33 @@ focus = {
 			}
 		}
 	}
+	
+		focus = {
+		id = ITA_japan_friend
+		icon = GFX_goal_molotov_ribbentrop_pact
+		prerequisite = { focus = ITA_anti_uk_war_goals }
+		available = {
+			JAP = { 
+				is_in_faction = no
+				country_exists = JAP
+				has_government = ROOT
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = ITA_anti_uk_war_goals
+		cost = 10
+
+		available_if_capitulated = yes
+		
+		ai_will_do = {
+			factor = 1
+		}			
+		completion_reward = {
+			JAP = { add_opinion_modifier = { target = ITA modifier = ita_diplomacy_focus } }
+		}
+	}
+	
 	focus = {
 		id = GER_soviet_ally
 		icon = GFX_goal_generic_dangerous_deal
@@ -10950,6 +11350,94 @@ focus = {
 						country_event = { id = wtt_germany.2 days = 1 }
 					}
 				}
+			}
+		}
+	}
+		focus = {
+		id = ITA_spanish_italian_faction
+		icon = GFX_goal_support_fascism
+		prerequisite = { focus = ITA_support_nationalist_spain }
+		mutually_exclusive = { focus = ITA_demand_balearic_islands }
+		available = {
+			is_in_faction = yes
+			any_other_country = {
+				original_tag = SPR
+				has_government = fascism
+				has_civil_war = no
+				NOT = { has_war_with = ROOT }
+				is_in_faction = no
+			}
+			FRA = {
+				OR = {
+					NOT = { country_exists = THIS }
+					has_capitulated = yes
+					has_government = fascism
+				}
+			}			
+		}
+		bypass = {
+			any_other_country = {
+				original_tag = SPR
+				has_government = fascism
+				is_in_faction_with = ROOT
+			}
+		}
+		x = 4
+		y = 1
+		relative_position_id = ITA_italy_first
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}	
+		completion_reward = {
+			random_other_country = {
+				limit = {
+					original_tag = SPR
+					has_government = fascism
+				}
+				add_opinion_modifier = { target = ITA modifier = ita_diplomacy_focus }
+				add_ideas = fascist_influence 
+				country_event = { id = generic.5 }           
+			}
+		}
+	}
+
+	focus = {
+		id = ITA_portugal_friend
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { focus = ITA_spanish_italian_faction }
+		x = 0
+		y = 1
+		relative_position_id = ITA_spanish_italian_faction
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			is_in_faction = yes
+			country_exists = POR
+			NOT = {
+				has_war_with = POR
+			}
+		}
+
+		completion_reward = {
+			POR = {
+				add_opinion_modifier = { target = ITA modifier = ita_diplomacy_focus }
+				if = {
+					limit = { ROOT = { has_government = fascism } }
+					add_timed_idea = { idea = fascist_influence days = 1095 }
+				}
+				if = {
+					limit = { ROOT = { has_government = democratic } }
+					add_timed_idea = { idea = democratic_influence days = 1095 }
+				}
+				if = {
+					limit = { ROOT = { has_government = communism } }
+					add_timed_idea = { idea = communist_influence days = 1095 }
+				}
+				country_event = { id = generic.5 }
 			}
 		}
 	}
@@ -12883,36 +13371,119 @@ focus = {
 			}
 		}
 	}
-	
-	focus = {
-		id = USA_unrestricted_submarine_warfare
-		icon = GFX_goal_generic_wolf_pack
-		x = 3
-		y = 2
-		###relative_position_id = { focus = USA_fleet_submarines }
-		##relative_position_id = USA_bureau_of_ships
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-		}
-
+focus = {
+		id = USA_USACE_projects
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = USA_scientist_haven }
+		prerequisite = { focus = USA_war_propaganda }
 		available = {
-
+			threat > 0.30
 		}
 		
-		bypass = {
 
+		continue_if_invalid = yes
+		
+		x = -1
+		y = 1
+		relative_position_id = USA_scientist_haven
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		complete_tooltip = {
+			every_state = {
+				limit = { has_state_flag = USA_USACE_projects_3AF }
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+			every_state = {
+				limit = { has_state_flag = USA_USACE_projects_3Inf }
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+			add_ideas = extensive_conscription
 		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
 		completion_reward = {
-			add_ideas = USA_unrestricted_submarine_warfare
+			random_owned_controlled_state = {
+				limit = {
+					arms_factory > 0
+					free_building_slots = {
+						building = arms_factory
+						size > 2
+						include_locked = yes
+					}
+					OR = {
+						region = 117
+						region = 118
+						region = 119
+						region = 120
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = USA_USACE_projects_3AF
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+						include_locked = yes
+					}
+					OR = {
+						region = 117
+						region = 118
+						region = 119
+						region = 120
+					}
+					state_population > 3000000
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = USA_USACE_projects_3Inf
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+						include_locked = yes
+					}
+					OR = {
+						region = 117
+						region = 118
+						region = 119
+						region = 120
+					}
+					state_population > 3000000
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = USA_USACE_projects_3Inf
+			}
+			air_experience = 50
+			navy_experience = 50
+			army_experience = 10			
 		}
 	}
+
 	focus = {
 		id = USA_war_plan_yellow
 		icon = GFX_focus_attack_china
@@ -13069,35 +13640,6 @@ focus = {
 		}
 	}
 
-	focus = {
-		id = USA_war_plan_gray
-		icon = GFX_goal_generic_more_territorial_claims
-		x = 0
-		y = 3
-		###relative_position_id = { focus = USA_reinforce_monroe_doctrine }
-		#relative_position_id = USA_intervention_in_the_americas
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-
-		}
-		
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		completion_reward = {
-			unlock_decision_tooltip = { decision = USA_execute_war_plan_gray show_effect_tooltip = yes show_modifiers = yes } 
-		}
-	}
 	focus = {
 		id = USA_hemisphere_defense
 		icon = GFX_goal_generic_defence
@@ -13505,6 +14047,549 @@ focus = {
 			add_research_slot = 1
 		}
 	}
+		focus = {
+		id = ENG_imperial_federation
+		prerequisite = { focus = ENG_imperial_conference }
+		available = {
+			if = {
+				limit = {
+					has_dlc = "Together for Victory"
+					has_dlc = "Death or Dishonor"
+				}
+				CAN = {
+					OR = {
+						AND = {
+							is_subject_of = ENG
+							OR = {
+								has_autonomy_state = autonomy_integrated_puppet
+								has_autonomy_state = autonomy_reichskommissariat
+							}
+						}
+						AND = {
+							exists = no
+							NOT = {
+								any_state = {
+									is_core_of = CAN
+									NOT = { is_owned_by = ROOT }
+								}
+							}
+						}
+					}
+				}
+				SAF = {
+					OR = {
+						AND = {
+							is_subject_of = ENG
+							OR = {
+								has_autonomy_state = autonomy_integrated_puppet
+								has_autonomy_state = autonomy_reichskommissariat
+							}
+						}
+						AND = {
+							exists = no
+							NOT = {
+								any_state = {
+									is_core_of = SAF
+									NOT = { is_owned_by = ROOT }
+								}
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						RAJ = { has_country_flag = ENG_accepted_federation }
+					}
+					RAJ = {
+						OR = {
+							AND = {
+								is_subject_of = ENG
+								OR = {
+									has_autonomy_state = autonomy_integrated_puppet
+									has_autonomy_state = autonomy_reichskommissariat
+								}
+							}
+							AND = {
+								exists = no
+								NOT = {
+									any_state = {
+										is_core_of = RAJ
+										NOT = { state = 320 }
+										NOT = { state = 321 }
+										NOT = { is_owned_by = ROOT }
+									}
+								}
+							}
+						}
+					}
+				}
+				AST = {
+					OR = {
+						AND = {
+							is_subject_of = ENG
+							OR = {
+								has_autonomy_state = autonomy_integrated_puppet
+								has_autonomy_state = autonomy_reichskommissariat
+							}
+						}
+						AND = {
+							exists = no
+							NOT = {
+								any_state = {
+									is_core_of = AST
+									NOT = { is_owned_by = ROOT }
+								}
+							}
+						}
+					}
+				}
+				NZL = {
+					OR = {
+						AND = {
+							is_subject_of = ENG
+							OR = {
+								has_autonomy_state = autonomy_integrated_puppet
+								has_autonomy_state = autonomy_reichskommissariat
+							}
+						}
+						AND = {
+							exists = no
+							NOT = {
+								any_state = {
+									is_core_of = NZL
+									NOT = { is_owned_by = ROOT }
+								}
+							}
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					has_dlc = "Together for Victory"
+					NOT = { has_dlc = "Death or Dishonor" }
+				}
+				CAN = {
+					OR = {
+						AND = {
+							is_subject_of = ENG
+							has_autonomy_state = autonomy_integrated_puppet
+						}
+						AND = {
+							exists = no
+							NOT = {
+								any_state = {
+									is_core_of = CAN
+									NOT = { is_owned_by = ROOT }
+								}
+							}
+						}
+					}
+				}
+				SAF = {
+					OR = {
+						AND = {
+							is_subject_of = ENG
+							has_autonomy_state = autonomy_integrated_puppet
+						}
+						AND = {
+							exists = no
+							NOT = {
+								any_state = {
+									is_core_of = SAF
+									NOT = { is_owned_by = ROOT }
+								}
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						RAJ = { has_country_flag = ENG_accepted_federation }
+					}
+					RAJ = {
+						OR = {
+							AND = {
+								is_subject_of = ENG
+								has_autonomy_state = autonomy_integrated_puppet
+							}
+							AND = {
+								exists = no
+								NOT = {
+									any_state = {
+										is_core_of = RAJ
+										NOT = { state = 320 }
+										NOT = { state = 321 }
+										NOT = { is_owned_by = ROOT }
+									}
+								}
+							}
+						}
+					}
+				}
+				AST = {
+					OR = {
+						AND = {
+							is_subject_of = ENG
+							has_autonomy_state = autonomy_integrated_puppet
+						}
+						AND = {
+							exists = no
+							NOT = {
+								any_state = {
+									is_core_of = AST
+									NOT = { is_owned_by = ROOT }
+								}
+							}
+						}
+					}
+				}
+				NZL = {
+					OR = {
+						AND = {
+							is_subject_of = ENG
+							has_autonomy_state = autonomy_integrated_puppet
+						}
+						AND = {
+							exists = no
+							NOT = {
+								any_state = {
+									is_core_of = NZL
+									NOT = { is_owned_by = ROOT }
+								}
+							}
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = { has_dlc = "Together for Victory" }
+					has_dlc = "Death or Dishonor"
+					has_government = fascism
+				}
+				CAN = {
+					OR = {
+						AND = {
+							is_subject_of = ENG
+							has_autonomy_state = autonomy_reichskommissariat
+						}
+						AND = {
+							exists = no
+							NOT = {
+								any_state = {
+									is_core_of = CAN
+									NOT = { is_owned_by = ROOT }
+								}
+							}
+						}
+					}
+				}
+				SAF = {
+					OR = {
+						AND = {
+							is_subject_of = ENG
+							has_autonomy_state = autonomy_reichskommissariat
+						}
+						AND = {
+							exists = no
+							NOT = {
+								any_state = {
+									is_core_of = SAF
+									NOT = { is_owned_by = ROOT }
+								}
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						RAJ = { has_country_flag = ENG_accepted_federation }
+					}
+					RAJ = {
+						OR = {
+							AND = {
+								is_subject_of = ENG
+								has_autonomy_state = autonomy_reichskommissariat
+							}
+							AND = {
+								exists = no
+								NOT = {
+									any_state = {
+										is_core_of = RAJ
+										NOT = { state = 320 }
+										NOT = { state = 321 }
+										NOT = { is_owned_by = ROOT }
+									}
+								}
+							}
+						}
+					}
+				}
+				AST = {
+					OR = {
+						AND = {
+							is_subject_of = ENG
+							has_autonomy_state = autonomy_reichskommissariat
+						}
+						AND = {
+							exists = no
+							NOT = {
+								any_state = {
+									is_core_of = AST
+									NOT = { is_owned_by = ROOT }
+								}
+							}
+						}
+					}
+				}
+				NZL = {
+					OR = {
+						AND = {
+							is_subject_of = ENG
+							has_autonomy_state = autonomy_reichskommissariat
+						}
+						AND = {
+							exists = no
+							NOT = {
+								any_state = {
+									is_core_of = NZL
+									NOT = { is_owned_by = ROOT }
+								}
+							}
+						}
+					}
+				}
+			}
+			else = {
+				CAN = {
+					OR = {
+						AND = {
+							is_subject_of = ENG
+							compare_autonomy_progress_ratio < 0.1
+						}
+						AND = {
+							exists = no
+							NOT = {
+								any_state = {
+									is_core_of = CAN
+									NOT = { is_owned_by = ROOT }
+								}
+							}
+						}
+					}
+				}
+				SAF = {
+					OR = {
+						AND = {
+							is_subject_of = ENG
+							compare_autonomy_progress_ratio < 0.1
+						}
+						AND = {
+							exists = no
+							NOT = {
+								any_state = {
+									is_core_of = SAF
+									NOT = { is_owned_by = ROOT }
+								}
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						RAJ = { has_country_flag = ENG_accepted_federation }
+					}
+					RAJ = {
+						OR = {
+							AND = {
+								is_subject_of = ENG
+								compare_autonomy_progress_ratio < 0.1
+							}
+							AND = {
+								exists = no
+								NOT = {
+									any_state = {
+										is_core_of = RAJ
+										NOT = { state = 320 }
+										NOT = { state = 321 }
+										NOT = { is_owned_by = ROOT }
+									}
+								}
+							}
+						}
+					}
+				}
+				AST = {
+					OR = {
+						AND = {
+							is_subject_of = ENG
+							compare_autonomy_progress_ratio < 0.1
+						}
+						AND = {
+							exists = no
+							NOT = {
+								any_state = {
+									is_core_of = AST
+									NOT = { is_owned_by = ROOT }
+								}
+							}
+						}
+					}
+				}
+				NZL = {
+					OR = {
+						AND = {
+							is_subject_of = ENG
+							compare_autonomy_progress_ratio < 0.1
+						}
+						AND = {
+							exists = no
+							NOT = {
+								any_state = {
+									is_core_of = NZL
+									NOT = { is_owned_by = ROOT }
+								}
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						CAN = { exists = yes }
+						SAF = { exists = yes }
+						AST = { exists = yes }
+						NZL = { exists = yes }
+					}
+				}
+				has_country_flag = ENG_dominions_accepted_federation
+			}
+		}
+
+		icon = GFX_focus_eng_imperial_federation
+
+		x = 0
+		y = 1
+		relative_position_id = ENG_imperial_conference
+		cost = 10
+		ai_will_do = {
+			factor = 1
+			#modifier = {
+			#	factor = 0
+			#}
+		}	
+		completion_reward = {
+			if = {
+				limit = {
+					RAJ = {
+						NOT = { is_subject_of = ENG }
+					}
+				}
+				set_cosmetic_tag = ENG_imperial_federation_unified
+				news_event = { id = mtg_news.8 days = 1 }
+			}
+			if = {
+				limit = {
+					RAJ = {
+						is_subject_of = ENG
+					}
+				}
+				set_cosmetic_tag = ENG_imperial_federation_india_unified
+				news_event = { id = mtg_news.9 days = 1 }
+			}
+			CAN = {
+				every_unit_leader = {
+					set_nationality = ENG
+				}
+			}
+			annex_country = {
+			    target = CAN
+			    transfer_troops = yes
+			}
+			every_state = {
+				limit = {
+					is_core_of = CAN
+				}
+				add_core_of = ENG
+			}
+			SAF = {
+				every_unit_leader = {
+					set_nationality = ENG
+				}
+			}
+			annex_country = {
+			    target = SAF
+			    transfer_troops = yes
+			}
+			if = {
+				limit = {
+					SAF = { has_completed_focus = SAF_police_windhoek }
+				}
+				every_state = {
+					limit = {
+						is_core_of = SAF
+						NOT = { state = 275 }
+					}
+					add_core_of = ENG
+				}
+			}
+			if = {
+				limit = {
+					RAJ = { has_country_flag = ENG_accepted_federation }
+				}
+				RAJ = {
+					every_unit_leader = {
+						set_nationality = ENG
+					}
+				}
+				annex_country = {
+				    target = RAJ
+				    transfer_troops = yes
+				}
+			}
+			AST = {
+				every_unit_leader = {
+					set_nationality = ENG
+				}
+			}
+			annex_country = {
+			    target = AST
+			    transfer_troops = yes
+			}
+			every_state = {
+				limit = {
+					is_core_of = AST
+				}
+				add_core_of = ENG
+			}
+			NZL = {
+				every_unit_leader = {
+					set_nationality = ENG
+				}
+			}
+			annex_country = {
+			    target = NZL
+			    transfer_troops = yes
+			}
+			every_state = {
+				limit = {
+					is_core_of = NZL
+				}
+				add_core_of = ENG
+			}
+			MAL = {
+				every_unit_leader = {
+					set_nationality = ENG
+				}
+			}
+			annex_country = {
+			    target = MAL
+			    transfer_troops = yes
+			}
+		}
+	}
 
 ###  ## ###  ##  ###  #   ###  ## #  #     ### #  # ###      ##   ##  #   ###       ## ###  ##  #  # ###   ##  ###  ###  
 #   #    #  #  # #  # #    #  #   #  #      #  #  # #       #    #  # #   #  #     #    #  #  # ## # #  # #  # #  # #  # 
@@ -13512,51 +14597,380 @@ focus = {
 #     #  #  #  # #  # #    #    # #  #      #  #  # #       #  # #  # #   #  #       #  #  #  # #  # #  # #  # #  # #  # 
 ### ##   #  #  # ###  ### ### ##  #  #      #  #  # ###      ##   ##  ### ###      ##   #  #  # #  # ###  #  # #  # ###  
 
-focus = {
-	id = USA_reestablish_the_gold_standard
-	icon = GFX_focus_usa_reestablish_the_gold_standard
-	x = 18
-	y = 0
-	offset = {
-		x = -12
-		y = 0
-		trigger = {
-			not = { has_dlc = "Man the Guns" }
-		}
-	}
-	cost = 10
 
-	ai_will_do = {
-		factor = 1
-	}
-	##mutually_exclusive = { focus = USA_continue_the_new_deal }
-	available = {
-		has_government = democratic
-		NOT = {
-			has_country_leader = { ruling_only = yes name = "Franklin Delano Roosevelt" }
-		}
-	}
-	
-	bypass = {
-
-	}
-
-	cancel_if_invalid = yes
-	continue_if_invalid = no
-	available_if_capitulated = no
-
-	completion_reward = {
-		add_ideas = USA_gold_standard
-		USA_congress_small_opposition = yes
-	}
-}
 
  ## ### ###  ### #  #  ##  ### #  # ### #  #     ### #  # ###      ##  #   # ### ###  ###  ##   ##  #  #     #   ###  ##  ###  ##  #  # 
 #    #  #  # #   ## # #     #  #  # #   ## #      #  #  # #       #  # ## ## #   #  #  #  #  # #  # ## #     #   #   #     #  #  # ## # 
  #   #  ###  ##  # ## # ##  #  #### ##  # ##      #  #### ##      #### # # # ##  ###   #  #    #### # ##     #   ##  # ##  #  #  # # ## 
   #  #  #  # #   #  # #  #  #  #  # #   #  #      #  #  # #       #  # #   # #   #  #  #  #  # #  # #  #     #   #   #  #  #  #  # #  # 
 ##   #  #  # ### #  #  ##   #  #  # ### #  #      #  #  # ###     #  # #   # ### #  # ###  ##  #  # #  #     ### ###  ##  ###  ##  #  # 
+focus = {
+		id = ITA_greece_friend
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = ITA_italy_first }
+		mutually_exclusive = { focus = ITA_greece_war_goal focus = ITA_turkey_friend }
+		x = 1
+		y = 3
+		relative_position_id = ITA_italy_first
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			country_exists = GRE
+			NOT = {
+				has_war_with = GRE
+			}
+			has_government = fascism
+		}
 
+		bypass = {
+			NOT = { country_exists = GRE }
+		}
+
+		completion_reward = {
+			GRE = {
+				add_opinion_modifier = { target = ITA modifier = ita_diplomacy_focus }
+				if = {
+					limit = { ROOT = { has_government = fascism } }
+					add_timed_idea = { idea = fascist_influence days = 1095 }
+				}
+				if = {
+					limit = { ROOT = { has_government = democratic } }
+					add_timed_idea = { idea = democratic_influence days = 1095 }
+				}
+				if = {
+					limit = { ROOT = { has_government = communism } }
+					add_timed_idea = { idea = communist_influence days = 1095 }
+				}
+				country_event = { id = generic.1 }
+			}
+
+			hidden_effect = {
+				news_event = { hours = 6 id = news.187 } 
+			}
+		}
+	}
+focus = {
+		id = USA_war_plan_orange
+		icon = GFX_focus_attack_japan
+
+		available = {
+			
+		}
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+
+		x = 0
+		y = 1
+		relative_position_id = USA_intervention_in_asia
+		cost = 5
+		#ai_will_do = {
+		#	factor = 1
+		#}
+
+
+		completion_reward = {
+			JAP = {
+				add_opinion_modifier = { target = USA modifier = war_plan_orange }
+			}
+			unlock_decision_tooltip = { decision = USA_execute_war_plan_orange show_effect_tooltip = yes show_modifiers = yes }
+		}
+	}
+	focus = {
+		id = ITA_turkey_friend
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = ITA_italy_first }
+		mutually_exclusive = { focus = ITA_greece_friend }
+		x = 3
+		y = 3
+		relative_position_id = ITA_italy_first
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			country_exists = TUR
+			NOT = {
+				has_war_with = TUR
+			}
+			has_government = fascism
+		}
+
+		completion_reward = {
+			TUR = {
+				add_opinion_modifier = { target = ITA modifier = ita_diplomacy_focus }
+				if = {
+					limit = { ROOT = { has_government = fascism } }
+					add_timed_idea = { idea = fascist_influence days = 1095 }
+				}
+				if = {
+					limit = { ROOT = { has_government = democratic } }
+					add_timed_idea = { idea = democratic_influence days = 1095 }
+				}
+				if = {
+					limit = { ROOT = { has_government = communism } }
+					add_timed_idea = { idea = communist_influence days = 1095 }
+				}
+				country_event = { id = generic.1 }
+			}
+			hidden_effect = {
+				news_event = {
+					hours = 6 id = news.188
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ITA_anti_uk_war_goals
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = ITA_italy_first }	
+		available = {
+			NOT = { is_in_faction_with = ENG }
+		}	
+		bypass = {
+			OR = {
+				has_war_with = ENG
+				is_in_faction_with = GER
+				NOT = { country_exists = ENG }
+			}
+		}
+		will_lead_to_war_with = ENG
+		x = 0
+		y = 1
+		relative_position_id = ITA_italy_first
+		cost = 10
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 1.5
+				ai_irrationality > 25
+			}
+
+			modifier = {
+				factor = 1.5
+				ai_irrationality > 30
+			}
+
+			modifier = {
+				factor = 2
+				ai_irrationality > 35
+			}
+		}	
+		completion_reward = {
+			create_wargoal = {
+				type = take_state_focus
+				target = ENG
+				generator = { 118 453 116 183 } # Gibraltar, Suez, Malta, Cyprus
+			}
+		}
+	}
+	focus = {
+		id = ITA_go_after_france
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = ITA_italy_first }
+		available = {
+			country_exists = FRA
+			FRA = {
+				OR = {
+					owns_state = 1
+					owns_state = 735
+					owns_state = 458
+				}
+			}
+			NOT = { is_in_faction_with = FRA }
+		}
+		will_lead_to_war_with = FRA
+		x = 2
+		y = 1
+		relative_position_id = ITA_italy_first
+		cost = 10
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 1.5
+				ai_irrationality > 25
+			}
+
+			modifier = {
+				factor = 1.5
+				ai_irrationality > 30
+			}
+
+			modifier = {
+				factor = 2
+				ai_irrationality > 35
+			}
+		}			
+		completion_reward = {
+			create_wargoal = {
+				target = FRA
+				type = take_state_focus
+				generator = { 1 735 458 }
+			}
+		}
+	}
+	focus = {
+		id = USA_intervention_in_asia
+		icon = GFX_goal_generic_major_war
+		x = 1
+		y = 1
+		prerequisite = { focus = USA_war_plans_division }
+		relative_position_id = USA_war_plans_division
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			create_corps_commander = {
+				name = "Alexander Vandegrift"
+				gfx = GFX_portrait_usa_alexander_vandegrift
+				skill = 3
+				attack_skill = 3
+				defense_skill = 1
+				planning_skill = 3
+				logistics_skill = 3
+				traits = { naval_invader }
+			}
+		}
+	}
+focus = {
+		id = USA_intervention_in_europe
+		icon = GFX_goal_generic_territory_or_war
+		x = -1
+		y = 1
+		prerequisite = { focus = USA_war_plans_division }
+		relative_position_id = USA_war_plans_division
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = USA_intervention_in_europe
+		}
+	}
+focus = {
+		id = USA_war_plans_division
+		icon = GFX_goal_generic_position_armies
+		x = 14
+		y = 0
+		offset = {
+			x = -26
+			y = 0
+			trigger = {
+				not = { has_dlc = "Man the Guns" }
+			}
+		}
+		
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			custom_effect_tooltip = available_chief_of_army
+			show_ideas_tooltip = walter_krueger
+			unlock_decision_category_tooltip = USA_war_plans
+		}
+	}
+		focus = {
+		id = USA_war_plan_silver
+		icon = GFX_focus_attack_italy
+		x = -1
+		y = 1
+		prerequisite = { focus = USA_intervention_in_europe }
+		relative_position_id = USA_intervention_in_europe
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+	
+		available = {
+			
+		}
+			
+		bypass = {
+	
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			unlock_decision_tooltip = { decision = USA_execute_war_plan_silver show_effect_tooltip = yes show_modifiers = yes }
+		}
+	}
+	focus = {
+		id = USA_war_plan_black
+		icon = GFX_focus_attack_germany
+		prerequisite = { focus = USA_intervention_in_europe }
+		available = {
+		}
+
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+
+		x = 0
+		y = 2
+		relative_position_id = USA_intervention_in_europe
+		cost = 5
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		completion_reward = {
+			GER = {
+				add_opinion_modifier = { target = USA modifier = war_plan_black }
+			}
+			unlock_decision_tooltip = { decision = USA_execute_war_plan_black show_effect_tooltip = yes show_modifiers = yes }
+		}
+	}
 	focus = {
 		id = USA_america_first
 		icon = GFX_goal_generic_political_pressure
@@ -13988,36 +15402,6 @@ focus = {
 			GER = { add_opinion_modifier = { target = ROOT modifier = USA_work_with_the_bund } }
 			set_country_flag = MTG_work_with_the_bund # to check if the focus was completed regularly or bypassed
 			custom_effect_tooltip = USA_work_with_the_bund_tt
-		}
-	}
-	focus = {
-		id = USA_recruit_the_free_corps
-		icon = GFX_focus_usa_recruit_the_free_corps
-		x = 0
-		y = 2
-		###relative_position_id = { focus = USA_send_lindbergh_to_germany }
-		#relative_position_id = USA_invite_foreign_support
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-
-		}
-		
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		completion_reward = {
-			unlock_decision_tooltip = USA_raise_the_free_corps 
-			custom_effect_tooltip = USA_raise_the_free_corps_tt
 		}
 	}
 	focus = {
@@ -14470,107 +15854,6 @@ focus = {
 			}
 			country_event = mtg_usa_protect_south_america.1
 		}
-	}
-}
-focus = {
-	id = USA_pacific_pacification
-	icon = GFX_focus_generic_coastal_fort
-	x = 1
-	y = 4
-	###relative_position_id = { focus = USA_north_american_dominion }
-	#relative_position_id = USA_war_powers_act
-	cost = 10
-
-	ai_will_do = {
-		factor = 1
-	}
-
-	available = {
-		country_exists = AST
-		country_exists = NZL
-	}
-	
-	bypass = {
-		OR = {
-			AND = {
-				AST = { is_subject_of = ROOT }
-				NZL = { is_subject_of = ROOT }
-			}
-			AND = {
-				AST = { exists = no }
-				NZL = { exists = no }	
-			}
-			AND = {
-				AST = { has_war_with = ROOT }
-				NZL = { has_war_with = ROOT }
-			}
-		}
-	}
-
-	cancel_if_invalid = yes
-	continue_if_invalid = no
-	available_if_capitulated = no
-
-	completion_reward = {
-		if = {
-			limit = {
-				AST = {
-					is_subject = yes
-					OVERLORD = {
-						not = { tag = NZL }
-						not = { tag = ROOT }
-					}
-				}
-				NZL = {
-					is_subject = no
-				}
-			}
-			AST = { OVERLORD = { country_event = mtg_usa_pacific_pacification.1 } }
-			NZL = { country_event = mtg_usa_pacific_pacification.1 }
-		}
-		else_if = {
-			limit = {
-				AST = {
-					is_subject = no
-				}
-				NZL = {
-					is_subject = yes
-					OVERLORD = {
-						not = { tag = AST }
-						not = { tag = ROOT }
-					}
-				}
-			}
-			NZL = { OVERLORD = { country_event = mtg_usa_pacific_pacification.1 } }
-			AST = { country_event = mtg_usa_pacific_pacification.1 }
-		}
-		else_if = {
-			limit = {
-				AST = {
-					is_subject = yes
-					OVERLORD = {
-						not = { tag = ROOT }
-					}
-				}
-				NZL = {
-					is_subject = yes
-					OVERLORD = {
-						not = { tag = ROOT }
-					}
-				}
-			}
-			AST = { OVERLORD = { country_event = mtg_usa_pacific_pacification.1 } }
-			if = {
-				limit = {
-					AST = { OVERLORD = { NZL = { OVERLORD = { not = { tag = PREV.PREV } } } } } #NZL and AST both subjects but of different people
-				}
-				NZL = { OVERLORD = { country_event = mtg_usa_pacific_pacification.1 } }
-			}
-		}
-		else = {
-			AST = { country_event = mtg_usa_pacific_pacification.1 }
-			NZL = { country_event = mtg_usa_pacific_pacification.1 }
-		}	
 	}
 }
 focus = {

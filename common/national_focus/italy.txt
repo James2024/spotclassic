@@ -743,7 +743,7 @@ focus_tree = {
 		icon = GFX_goal_generic_axis_build_infantry
 		x = 4
 		y = 0
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 0.25
 		}
@@ -960,7 +960,7 @@ focus_tree = {
 		icon = GFX_goal_generic_build_navy
 		x = 6
 		y = 0
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 5
 		}
@@ -1336,7 +1336,7 @@ focus_tree = {
 		icon = GFX_goal_generic_navy_cruiser
 		x = 11
 		y = 0
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -1481,7 +1481,7 @@ focus_tree = {
 			factor = 1
 		}	
 		completion_reward = {
-			add_stability = 0.1
+			add_stability = 0.2
 			add_war_support = 0.1
 		}
 	}
@@ -1490,8 +1490,10 @@ focus_tree = {
 		id = ITA_slovenia_dalmatia_claims
 		icon = GFX_goal_generic_demand_territory
 		prerequisite = { focus = ITA_victoryinETH }
-		mutually_exclusive = { focus = ITA_yugoslavia_friend }
-		x = -1
+		available = {
+			date > 1937.11.1
+		}
+		x = 0
 		y = 1
 		relative_position_id = ITA_victoryinETH
 		cost = 10
@@ -1504,102 +1506,24 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			add_state_claim = 102
-			add_state_claim = 103
-			add_named_threat = { threat = 4 name = ITA_slovenia_dalmatia_claims_threat }
+			add_named_threat = { threat = 8 name = ITA_slovenia_dalmatia_claims_threat }
 			USA = {
 				set_country_flag = { flag = USA_yugoslavia_window days = 60 value = 1 }
 			}
-			YUG = {
-				add_opinion_modifier = { target = ITA modifier = claimed_western_yugoslavia }
-				if = {
-					limit = {
-						ROOT = { has_government = fascism }
-						NOT = { has_government = fascism }
-						NOT = { has_idea_with_trait = fascist_demagogue }
-						fascism < 0.3
-					}
-					add_popularity = {
-						ideology = fascism
-						popularity = 0.20
-					}
+			
+			if = {
+				limit = {
+					country_exists = YUG
 				}
-				if = {
-					limit = { 
-						ROOT = { has_government = communism }
-						NOT = { has_government = communism }
-						NOT = { has_idea_with_trait = communist_revolutionary }
-						NOT = { has_completed_focus = YUG_recognize_the_soviet_union }
-						communism < 0.3
-					}
-					add_popularity = {
-						ideology = communism
-						popularity = -0.07
-					}
-				}
-				if = {
-					limit = {
-						ROOT = { has_government = democratic }
-						NOT = { has_government = democratic }
-						NOT = { has_idea_with_trait = democratic_reformer }
-						democratic < 0.3
-					}
-					add_popularity = {
-						ideology = democratic
-						popularity = -0.07
-					}
+				create_wargoal = {
+					type = take_state_focus
+					target = YUG
 				}
 			}
+			
 
 			hidden_effect = {
 				news_event = { hours = 6 id = news.192 }
-			}
-		}
-	}
-
-	focus = {
-		id = ITA_yugoslavia_friend
-		icon = GFX_goal_generic_improve_relations
-		prerequisite = { focus = ITA_victoryinETH }
-		mutually_exclusive = { focus = ITA_slovenia_dalmatia_claims }
-		x = 1
-		y = 1
-		relative_position_id = ITA_victoryinETH
-		cost = 10
-		ai_will_do = {
-			factor = 0.25
-		}
-
-		available = {
-			country_exists = YUG
-			NOT = {
-				has_war_with = YUG
-			}
-		}
-
-		completion_reward = {
-			add_popularity = {
-				ideology = fascism
-				popularity = 0.20
-			}
-			YUG = {
-				add_opinion_modifier = { target = ITA modifier = ita_diplomacy_focus }
-				if = {
-					limit = { ROOT = { has_government = fascism } }
-					add_timed_idea = { idea = fascist_influence days = 1095 }
-				}
-				if = {
-					limit = { ROOT = { has_government = democratic } }
-					add_timed_idea = { idea = democratic_influence days = 1095 }
-				}
-				if = {
-					limit = { ROOT = { has_government = communism } }
-					add_timed_idea = { idea = communist_influence days = 1095 }
-				}
-				country_event = { id = generic.1 }
-			}
-			hidden_effect = {
-				news_event = { id = news.193 }
 			}
 		}
 	}
@@ -1647,7 +1571,7 @@ focus_tree = {
 	focus = {
 		id = ITA_albania_war_goal
 		icon = GFX_goal_generic_more_territorial_claims
-		prerequisite = { focus = ITA_slovenia_dalmatia_claims focus = ITA_yugoslavia_friend }
+		prerequisite = { focus = ITA_slovenia_dalmatia_claims }
 		will_lead_to_war_with = ALB
 		x = 2
 		y = 1
@@ -1885,6 +1809,7 @@ focus_tree = {
 			NOT = { has_war_with = GRE }
 			GRE = { NOT = { is_puppet_of = ITA } }
 			country_exists = GRE
+			date > 1939.3.1
 		}
 		will_lead_to_war_with = GRE
 		x = 1

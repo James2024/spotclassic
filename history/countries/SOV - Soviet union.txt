@@ -76,7 +76,6 @@ if = {
 
 add_ideas = {
 closed_economy
-SOV_isolated_economy
 }
 
 1939.1.1 = {

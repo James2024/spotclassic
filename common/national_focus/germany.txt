@@ -435,6 +435,16 @@ focus_tree = {
         	   resource = rubber
         	   amount = 2
         	}
+			add_tech_bonus = {
+				name = GER_coal_liquidization
+				bonus = 3
+				uses = 2
+				technology = rubber_processing
+				technology = improved_rubber_processing
+				technology = advanced_rubber_processing
+				technology = modern_rubber_processing
+			}
+			
 		}
 	}
 
@@ -830,7 +840,7 @@ focus_tree = {
 		x = -1
 		y = 2
 		relative_position_id = GER_air_innovation
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -948,7 +958,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = GER_strategic_air_effort
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -959,8 +969,8 @@ focus_tree = {
 			air_experience = 50
 			add_tech_bonus = {
 				name = air_sup_bonus
-				bonus = 1
-				uses = 2
+				bonus = 3
+				uses = 4
 				category = air_doctrine
 			}
 

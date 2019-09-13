@@ -111,6 +111,18 @@ NDefines.NNavy.ORG_COST_WHILE_MOVING = { -- org cost while the ships are moving
 		0.3, -- RESERVE_FLEET
 		0.2, -- NAVAL_INVASION_SUPPORT
 	}
+NDefines.NNavy.MISSION_SUPREMACY_RATIOS = { -- supremacy multipliers for different mission types
+		0.0, -- HOLD
+		1.0, -- PATROL		
+		0.4, -- STRIKE FORCE 
+		0.5, -- CONVOY RAIDING
+		0.5, -- CONVOY ESCORT
+		0.3, -- MINES PLANTING	
+		0.3, -- MINES SWEEPING	
+		0.0, -- TRAIN
+		0.0, -- RESERVE_FLEET
+		0.4, -- NAVAL_INVASION_SUPPORT
+	}
 
 ---Military
 NDefines.NMilitary.RECON_SKILL_IMPACT = 8

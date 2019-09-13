@@ -169,7 +169,7 @@ equipment_modules = {
 			naval_speed = -0.05
 		}
 		add_average_stats = {
-			hg_armor_piercing = 62
+			hg_armor_piercing = 31
 		}
 		build_cost_resources = {
 			steel = 1
@@ -195,7 +195,7 @@ equipment_modules = {
 			naval_speed = -0.06
 		}
 		add_average_stats = {
-			hg_armor_piercing = 72
+			hg_armor_piercing = 36
 		}
 		build_cost_resources = {
 			steel = 1
@@ -226,7 +226,7 @@ equipment_modules = {
 			naval_speed = -0.07
 		}
 		add_average_stats = {
-			hg_armor_piercing = 80
+			hg_armor_piercing = 40
 		}
 		build_cost_resources = {
 			steel = 1
@@ -258,7 +258,7 @@ equipment_modules = {
 			naval_speed = -0.08
 		}
 		add_average_stats = {
-			hg_armor_piercing = 86
+			hg_armor_piercing = 43
 		}
 		build_cost_resources = {
 			steel = 1
@@ -293,7 +293,7 @@ equipment_modules = {
 			naval_speed = -0.07
 		}
 		add_average_stats = {
-			hg_armor_piercing = 100
+			hg_armor_piercing = 50
 		}
 		critical_parts = { damaged_heavy_guns }
 	}
@@ -319,7 +319,7 @@ equipment_modules = {
 			max_strength = 0.4
 		}
 		add_average_stats = {
-			hg_armor_piercing = 16
+			hg_armor_piercing = 11
 			surface_visibility = 10
 		}
 		can_convert_from = {
@@ -347,7 +347,7 @@ equipment_modules = {
 			max_strength = 0.4
 		}
 		add_average_stats = {
-			hg_armor_piercing = 18
+			hg_armor_piercing = 12
 			surface_visibility = 10
 		}
 		can_convert_from = {
@@ -375,7 +375,7 @@ equipment_modules = {
 			max_strength = 0.4
 		}
 		add_average_stats = {
-			hg_armor_piercing = 19
+			hg_armor_piercing = 13
 			surface_visibility = 10
 		}
 		can_convert_from = {
@@ -403,7 +403,7 @@ equipment_modules = {
 			max_strength = 0.4
 		}
 		add_average_stats = {
-			hg_armor_piercing = 21
+			hg_armor_piercing = 14
 			surface_visibility = 10
 		}
 		can_convert_from = {
@@ -430,7 +430,7 @@ equipment_modules = {
 			naval_speed = -0.03
 		}
 		add_average_stats = {
-			lg_armor_piercing = 8
+			lg_armor_piercing = 5.5
 			max_strength = 20
 		}
 		can_convert_from = {
@@ -453,7 +453,7 @@ equipment_modules = {
 			naval_speed = -0.04
 		}
 		add_average_stats = {
-			lg_armor_piercing = 10.5
+			lg_armor_piercing = 7.0
 			max_strength = 20
 		}
 		can_convert_from = {
@@ -481,7 +481,7 @@ equipment_modules = {
 			naval_speed = -0.04
 		}
 		add_average_stats = {
-			lg_armor_piercing = 12
+			lg_armor_piercing = 8
 			max_strength = 20
 		}
 		can_convert_from = {
@@ -509,7 +509,7 @@ equipment_modules = {
 			naval_speed = -0.05
 		}
 		add_average_stats = {
-			lg_armor_piercing = 13.5
+			lg_armor_piercing = 9
 			max_strength = 20
 		}
 		can_convert_from = {
@@ -546,7 +546,7 @@ equipment_modules = {
 		}
 
 		add_average_stats = {
-			lg_armor_piercing = 8
+			lg_armor_piercing = 5.5
 		}
 		
 		can_convert_from = {
@@ -570,7 +570,7 @@ equipment_modules = {
 		}
 		
 		add_average_stats = {
-			lg_armor_piercing = 10.5
+			lg_armor_piercing = 7
 		}
 		
 		can_convert_from = {
@@ -586,7 +586,7 @@ equipment_modules = {
 		sfx = sfx_ui_sd_module_turret
 		add_stats = {
 			lg_attack = 4.5
-			anti_air_attack = 2.5
+			anti_air_attack = 1.5
 			build_cost_ic = 290
 		}
 
@@ -595,7 +595,7 @@ equipment_modules = {
 		}
 		
 		add_average_stats = {
-			lg_armor_piercing = 12
+			lg_armor_piercing = 8
 		}
 		
 		can_convert_from = {
@@ -625,7 +625,6 @@ equipment_modules = {
 		}
 		
 		multiply_stats = {
-			build_cost_ic = 0.025
 			naval_speed = -0.01
 		}
 
@@ -648,7 +647,6 @@ equipment_modules = {
 		
 		multiply_stats = {
 			naval_speed = -0.01
-			build_cost_ic = 0.025
 		}
 
 		can_convert_from = {
@@ -673,7 +671,6 @@ equipment_modules = {
 		
 		multiply_stats = {
 			naval_speed = -0.01
-			build_cost_ic = 0.025
 		}
 
 		can_convert_from = {
@@ -699,7 +696,6 @@ equipment_modules = {
 		
 		multiply_stats = {
 			naval_speed = -0.01
-			build_cost_ic = 0.025
 		}
 
 		can_convert_from = {
@@ -1538,7 +1534,7 @@ equipment_modules = {
 
 		
 		add_stats = {
-			torpedo_attack = 11.2
+			torpedo_attack = 14
 			build_cost_ic = 80
 		}
 		
@@ -1555,7 +1551,7 @@ equipment_modules = {
 		sfx = sfx_ui_sd_module_turret
 
 		add_stats = {
-			torpedo_attack = 14.4
+			torpedo_attack = 18
 			build_cost_ic = 100
 		}
 		
@@ -1576,7 +1572,7 @@ equipment_modules = {
 		sfx = sfx_ui_sd_module_turret
 
 		add_stats = {
-			torpedo_attack = 18.4
+			torpedo_attack = 23
 			build_cost_ic = 120
 		}
 		can_convert_from = {
@@ -1593,7 +1589,7 @@ equipment_modules = {
 		sfx = sfx_ui_sd_module_turret
 
 		add_stats = {
-			torpedo_attack = 24
+			torpedo_attack = 30
 			build_cost_ic = 140
 		}
 		can_convert_from = {
@@ -1916,7 +1912,7 @@ equipment_modules = {
 			steel = 1
 		}
 		add_stats = {
-			armor_value = 52
+			armor_value = 26
 			surface_visibility = 10
 		}
 		dismantle_cost_ic = 5500
@@ -1935,7 +1931,7 @@ equipment_modules = {
 		}
 
 		add_stats = {
-			armor_value = 40
+			armor_value = 20
 			surface_visibility = 8
 		}
 		dismantle_cost_ic = 4500
@@ -1954,7 +1950,7 @@ equipment_modules = {
 			steel = 1
 		}
 		add_stats = {
-			armor_value = 62
+			armor_value = 31
 			surface_visibility = 10
 		}
 		dismantle_cost_ic = 6000
@@ -1973,7 +1969,7 @@ equipment_modules = {
 			steel = 1
 		}
 		add_stats = {
-			armor_value = 50
+			armor_value = 25
 			surface_visibility = 8
 		}
 		dismantle_cost_ic = 5500
@@ -1991,7 +1987,7 @@ equipment_modules = {
 			steel = 1
 		}
 		add_stats = {
-			armor_value = 80
+			armor_value = 40
 			surface_visibility = 10
 		}
 		dismantle_cost_ic = 7500
@@ -2010,7 +2006,7 @@ equipment_modules = {
 			steel = 1
 		}
 		add_stats = {
-			armor_value = 60
+			armor_value = 30
 			surface_visibility = 8
 		}
 		dismantle_cost_ic = 6200
@@ -2030,7 +2026,7 @@ equipment_modules = {
 			chromium = 1
 		}
 		add_stats = {
-			armor_value = 110
+			armor_value = 55
 			surface_visibility = 10
 		}
 		dismantle_cost_ic = 8200
@@ -2047,7 +2043,7 @@ equipment_modules = {
 		dismantle_cost_ic = 2500
 		
 		add_stats = {
-			armor_value = 9
+			armor_value = 6
 		}
 	}
 	ship_armor_cruiser_2 = {
@@ -2062,7 +2058,7 @@ equipment_modules = {
 		dismantle_cost_ic = 3000
 		
 		add_stats = {
-			armor_value = 12
+			armor_value = 8
 		}
 	}
 	ship_armor_cruiser_3 = {
@@ -2077,7 +2073,7 @@ equipment_modules = {
 		dismantle_cost_ic = 3500
 		
 		add_stats = {
-			armor_value = 15
+			armor_value = 10
 		}
 	}
 	ship_armor_cruiser_4 = {
@@ -2092,7 +2088,7 @@ equipment_modules = {
 		dismantle_cost_ic = 4000
 		
 		add_stats = {
-			armor_value = 18
+			armor_value = 12
 		}
 	}
 	ship_armor_carrier_deck = {
@@ -2109,7 +2105,7 @@ equipment_modules = {
 			naval_speed = -0.05
 		}
 		add_stats = {
-			armor_value = 10
+			armor_value = 5
 			max_strength = 25
 		}
 		dismantle_cost_ic = 2500

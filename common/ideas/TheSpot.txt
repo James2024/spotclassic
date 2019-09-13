@@ -22,6 +22,7 @@ ideas = {
                 guarantee_tension = 2
             	ai_badass_factor = 0
                 ai_get_ally_desire_factor = -500
+				training_time_factor = 1000
             }
         }
 		idea_EFR_neutrality = {
@@ -44,6 +45,18 @@ ideas = {
 				guarantee_tension = 2.0
 				ai_get_ally_desire_factor = -500
 			}
-		}		
+		}
+		no_training = {
+            allowed = {
+                always = no
+            }
+
+            removal_cost = -1
+            picture = neutrality_idea
+
+            modifier = {
+				training_time_factor = 1000
+            }
+        }		
     }
 }

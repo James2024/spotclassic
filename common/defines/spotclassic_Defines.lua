@@ -17,7 +17,7 @@ NDefines.NDiplomacy.NUM_DAYS_TO_ENABLE_REINVITE_KICKED_NATIONS = 0
 NDefines.NDiplomacy.FRONT_IS_DANGEROUS = 0
 
 ---Country #aracde style gameplay
-NDefines.NCountry.VP_TO_SUPPLY_BASE = 1.5
+NDefines.NCountry.VP_TO_SUPPLY_BASE = 2
 NDefines.NCountry.SUPPLY_PATH_MAX_DISTANCE = 8
 NDefines.NCountry.REINFORCEMENT_EQUIPMENT_DELIVERY_SPEED = 3
 NDefines.NCountry.REINFORCEMENT_MANPOWER_DELIVERY_SPEED = 140
@@ -114,6 +114,18 @@ NDefines.NNavy.ORG_COST_WHILE_MOVING = { -- org cost while the ships are moving
 		0.3, -- RESERVE_FLEET
 		0.2, -- NAVAL_INVASION_SUPPORT
 	}
+NDefines.NNavy.MISSION_SUPREMACY_RATIOS = { -- supremacy multipliers for different mission types
+		0.0, -- HOLD
+		1.0, -- PATROL		
+		0.4, -- STRIKE FORCE 
+		0.5, -- CONVOY RAIDING
+		0.5, -- CONVOY ESCORT
+		0.3, -- MINES PLANTING	
+		0.3, -- MINES SWEEPING	
+		0.0, -- TRAIN
+		0.0, -- RESERVE_FLEET
+		0.4, -- NAVAL_INVASION_SUPPORT
+	}
 
 ---Military
 NDefines.NMilitary.RECON_SKILL_IMPACT = 8
@@ -166,9 +178,11 @@ NDefines.NAir.NAVAL_STRIKE_DAMAGE_TO_ORG = 1.0
 NDefines.NAir.AA_INDUSTRY_AIR_DAMAGE_FACTOR = -0.13 -- -0.12	5x levels = 65% defense from bombing
 NDefines.NAir.EFFICIENCY_REGION_CHANGE_DAILY_GAIN_TACTICAL_BOMBER =	0.1	-- base 0.192 How much efficiency to regain per day. Gain applied hourly.
 NDefines.NAir.AIR_COMBAT_FINAL_DAMAGE_SCALE = 0.3 -- 0.015	 % how many max disrupted only planes are allowed to die in a single combat
-NDefines.NAir.ANTI_AIR_MAXIMUM_DAMAGE_REDUCTION_FACTOR = 0.7 -- .75 Maximum damage reduction factor applied to incoming air attacks against units with AA.
+NDefines.NAir.ANTI_AIR_MAXIMUM_DAMAGE_REDUCTION_FACTOR = 0.65 -- .75 Maximum damage reduction factor applied to incoming air attacks against units with AA.
 NDefines.NAir.AIR_MORE_GROUND_CREWS_COST = 500.0 -- Disables ground crews. They're cancerous. --- Definietly are cancerous
 NDefines.NAir.ANTI_AIR_PLANE_DAMAGE_FACTOR = 0.6
+NDefines.NAir.NAVAL_STRIKE_DETECTION_BALANCE_FACTOR = 0.5		-- Value used to scale the surface_visibility stats to balance the gameplay, so 100% detection chance still won't spam the strikes.
+	
 
 ---XP for leaders
 NDefines.NMilitary.FIELD_MARSHAL_XP_RATIO = 0
@@ -189,7 +203,7 @@ NDefines.NMilitary.XP_GAIN_FOR_SHATTERING = 0.0
 ---Building
 NDefines.NBuildings.MAX_SHARED_SLOTS = 40 --amount of potential max building slots in a state
 NDefines.NBuildings.MAX_BUILDING_LEVELS = 20			-- Max levels a building can have.
-NDefines.NBuildings.INFRA_TO_SUPPLY = 2.5
+NDefines.NBuildings.INFRA_TO_SUPPLY = 3
 
 ---AI
 NDefines.NAI.DIPLOMACY_ACCEPT_ATTACHE_BASE = 100

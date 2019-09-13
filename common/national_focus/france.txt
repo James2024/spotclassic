@@ -1157,6 +1157,7 @@ focus_tree = {
 		#	factor = 1
 		#}
 		completion_reward = {
+			add_ideas = low_economic_mobilisation
 			set_country_flag = FRA_strengthen_government_support_focus_flag
 			add_timed_idea = {
 				idea = FRA_strengthen_government_support_focus

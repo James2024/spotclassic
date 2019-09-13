@@ -44,6 +44,7 @@ if = {
 		basic_battery = 1
 	}
 }
+add_timed_idea = { idea = no_training  days = 730 }
 add_equipment_to_stockpile = {
         type = infantry_equipment_1
         amount = 1100

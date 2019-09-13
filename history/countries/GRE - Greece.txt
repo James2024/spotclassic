@@ -55,6 +55,7 @@ if = {
 		mtg_transport = 1
 	}
 }
+add_timed_idea = { idea = no_training  days = 365 }
 add_equipment_to_stockpile = {
         type = infantry_equipment_1
         amount = 6000

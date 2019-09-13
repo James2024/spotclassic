@@ -30,6 +30,9 @@ NDefines.NCountry.BASE_MOBILIZATION_SPEED = 0.04
 NDefines.NCountry.NUM_DAYS_TO_FULLY_DELETE_STOCKPILED_EQUIPMENT = 999
 NDefines.NCountry.SPECIAL_FORCES_CAP_MIN = 70
 NDefines.NCountry.SPECIAL_FORCES_CAP_BASE = 0.10
+NDefines.NCountry.RESISTANCE_STRENGTH_FROM_VP = 0.00
+NDefines.NCountry.RESISTANCE_STRENGTH_FROM_UNIT = 0.0 
+NDefines.NCountry.BASE_FUEL_CAPACITY = 200000
 
 -- set default occupation law
 NDefines.NPolitics.DEFAULT_OCCUPATION_POLICY = 3
@@ -152,7 +155,7 @@ NDefines.NAir.DISRUPTION_FACTOR = 5  --- (4 -> 5)
 NDefines.NAir.ESCORT_FACTOR = 2.5 -- (2 -> 2.5)
 NDefines.NAir.AIR_DEPLOYMENT_DAYS = 1							-- Days to deploy one air wing
 NDefines.NAir.ACE_EARN_CHANCE_BASE = 0.01                        -- Base chance % for ace pilot to be created. Happens only when successfully kill airplane/ship or damage the buildings.
-NDefines.NAir.COMBAT_DAMAGE_SCALE = 0.2  -- Higher value = more shot down planes base 0.1
+NDefines.NAir.COMBAT_DAMAGE_SCALE = 0.1  -- Higher value = more shot down planes base 0.1
 NDefines.NAir.ANTI_AIR_PLANE_DAMAGE_CHANCE = 0.075	-- 0.1 base Anti Air Gun hit chance
 NDefines.NAir.AIR_WING_MAX_SIZE = 1600
 NDefines.NAir.ACE_WING_SIZE_MAX_BONUS = 1

@@ -1745,8 +1745,8 @@ early_ship_hull_carrier = {
 		
 		allow = {
 			has_game_rule = {
-				rule = horst_sub3_options
-				option = HORST_ENABLE_SUB3
+				rule = spot_sub3_options
+				option = spot_ENABLE_SUB3
 			}
 		}
 		
@@ -1789,8 +1789,8 @@ early_ship_hull_carrier = {
 		
 		allow = {
 			has_game_rule = {
-				rule = horst_sub4_options
-				option = HORST_ENABLE_SUB4
+				rule = spot_sub4_options
+				option = spot_ENABLE_SUB4
 			}
 		}
 		
@@ -1883,8 +1883,8 @@ early_ship_hull_carrier = {
 
 		allow = {
 			has_game_rule = {
-				rule = horst_snorkel_options
-				option = HORST_ENABLE_SNORKEL2
+				rule = spot_snorkel_options
+				option = spot_ENABLE_SNORKEL2
 			}
 		}
 		

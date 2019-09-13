@@ -22,6 +22,7 @@ ideas = {
                 guarantee_tension = 2
             	ai_badass_factor = 0
                 ai_get_ally_desire_factor = -500
+				training_time_factor = 1000
             }
         }
 		idea_EFR_neutrality = {

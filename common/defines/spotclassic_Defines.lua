@@ -97,6 +97,9 @@ NDefines.NNavy.SUBMARINE_REVEAL_POW = 5.0		-- A scaling factor that is applied t
 NDefines.NNavy.COMBAT_DAMAGE_TO_STR_FACTOR = 0.33	-- casting damage value to ship strength multiplier. Use it ot balance the game difficulty.
 NDefines.NNavy.COMBAT_DAMAGE_TO_ORG_FACTOR = 0.8	-- casting damage value to ship organisation multiplier. Use it to balance the game difficulty.
 NDefines.NNavy.MAX_ORG_ON_MANUAL_MOVE = 1.0	-- org will clamped to this ratio on manual move
+
+NDefines.NNavy.UNIT_TRANSFER_DETECTION_CHANCE_BASE = 2.0  -- unit transfer and naval invasion base chance detection percentage (if this fails, no detection is done on that tick)
+
 NDefines.NNavy.GUN_HIT_PROFILES = { -- hit profiles for guns, if target ih profile is lower the gun will have lower accuracy
 		90.0,	-- big guns
 		145.0,	-- torpedos

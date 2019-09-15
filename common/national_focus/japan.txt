@@ -2753,7 +2753,7 @@ focus_tree = {
 		id = JAP_agility_focus
 		icon = GFX_goal_generic_air_production
 		prerequisite = { focus = JAP_fighter_modernization }
-		x = 1
+		x = 2
 		y = 1
 		relative_position_id = JAP_fighter_modernization
 
@@ -2791,7 +2791,7 @@ focus_tree = {
 		icon = GFX_focus_jap_zero
 		#prerequisite = { focus = JAP_first_air_fleet }
 		prerequisite = { focus = JAP_agility_focus }
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = JAP_agility_focus
 
@@ -2903,9 +2903,8 @@ focus_tree = {
 	focus = {
 		id = JAP_unified_fighter_development
 		icon = GFX_goal_generic_air_fighter
-		prerequisite = { focus = JAP_agility_focus }
 		prerequisite = { focus = JAP_the_zero }
-		x = 1
+		x = 2
 		y = 3
 		relative_position_id = JAP_fighter_modernization
 

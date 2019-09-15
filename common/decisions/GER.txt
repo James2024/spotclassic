@@ -102,6 +102,12 @@ land_measures = {
 			NOT = { ITA = { has_full_control_of_state = 450 } }
 			NOT = { ITA = { has_full_control_of_state = 451 } }
 			NOT = { ITA = { has_full_control_of_state = 663 } }
+			EFR = {
+				AND =	{
+					has_full_control_of_state = 665
+					has_full_control_of_state = 458
+				}
+			}
 		}
 		
 		visible = {

@@ -578,7 +578,7 @@ focus_tree = {
 		id = SAF_native_laws_amendment_act
 		icon = GFX_goal_generic_forceful_treaty
 		prerequisite = { focus = SAF_police_windhoek }
-		x = -1
+		x = 0
 		y = 2
 		relative_position_id = SAF_support_the_policy_of_appeasement
 
@@ -613,8 +613,8 @@ focus_tree = {
 		id = SAF_voortrekker_monument
 		icon = GFX_goal_generic_national_unity
 		prerequisite = { focus = SAF_native_laws_amendment_act }
-		x = 5
-		y = 3
+		x = -2
+		y = 2
 
 		cost = 10
 
@@ -647,7 +647,7 @@ focus_tree = {
 		id = SAF_work_for_all_poor
 		icon = GFX_goal_generic_construction2
 		prerequisite = { focus = SAF_native_laws_amendment_act }
-		x = -1
+		x = 0
 		y = 4
 		relative_position_id = SAF_support_the_policy_of_appeasement
 

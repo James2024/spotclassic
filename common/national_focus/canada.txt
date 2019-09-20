@@ -1513,7 +1513,7 @@ focus_tree = {
 		icon = GFX_goal_generic_propaganda
 		prerequisite = { focus = CAN_john_inglis_and_company }
 		prerequisite = { focus = CAN_victory_aircraft_limited }
-		x = -2
+		x = -3
 		y = 5
 		relative_position_id = CAN_defence_of_canada_regulations
 
@@ -1554,7 +1554,6 @@ focus_tree = {
 	focus = {
 		id = CAN_defense_research_grants
 		icon = GFX_focus_research
-		prerequisite = { focus = CAN_john_inglis_and_company }
 		prerequisite = { focus = CAN_if_day }
 		x = -3
 		y = 6

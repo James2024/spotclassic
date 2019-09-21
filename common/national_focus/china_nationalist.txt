@@ -82,6 +82,28 @@ focus_tree = {
 
 		completion_reward = {
 			add_stability = 0.05
+			CHI = {
+				set_rule = { can_create_factions = yes }
+				create_faction = chinese_united_front
+			}
+			PRC = {
+				country_event = generic.5
+			}
+			SHX = {
+				country_event = generic.5
+			}
+			XSM = {
+				country_event = generic.5
+			}
+			SIK = {
+				country_event = generic.5
+			}
+			YUN = {
+				country_event = generic.5
+			}
+			GXC = {
+				country_event = generic.5
+			}
 		}
 	}
 
@@ -787,13 +809,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			CHI = {
-				set_rule = { can_create_factions = yes }
-				create_faction = chinese_united_front
-			}
-			PRC = {
-				country_event = generic.5
-			}
+
 		}
 	}
 

@@ -126,14 +126,13 @@ equipment_modules = {
 	
 		add_stats = {
 			lg_attack = 3
-			anti_air_attack = 3
+			anti_air_attack = 1
 			build_cost_ic = 300
 		}
 		multiply_stats = {
 			naval_speed = -0.02
 		}
 		build_cost_resources = {
-			steel = 1
 		}
 		add_average_stats = {
 			lg_armor_piercing = 2.0
@@ -1912,7 +1911,7 @@ equipment_modules = {
 			steel = 1
 		}
 		add_stats = {
-			armor_value = 26
+			armor_value = 39
 			surface_visibility = 10
 		}
 		dismantle_cost_ic = 5500
@@ -1931,7 +1930,7 @@ equipment_modules = {
 		}
 
 		add_stats = {
-			armor_value = 20
+			armor_value = 30
 			surface_visibility = 8
 		}
 		dismantle_cost_ic = 4500
@@ -1950,7 +1949,7 @@ equipment_modules = {
 			steel = 1
 		}
 		add_stats = {
-			armor_value = 31
+			armor_value = 46
 			surface_visibility = 10
 		}
 		dismantle_cost_ic = 6000
@@ -1969,7 +1968,7 @@ equipment_modules = {
 			steel = 1
 		}
 		add_stats = {
-			armor_value = 25
+			armor_value = 37
 			surface_visibility = 8
 		}
 		dismantle_cost_ic = 5500
@@ -1987,7 +1986,7 @@ equipment_modules = {
 			steel = 1
 		}
 		add_stats = {
-			armor_value = 40
+			armor_value = 60
 			surface_visibility = 10
 		}
 		dismantle_cost_ic = 7500
@@ -2006,7 +2005,7 @@ equipment_modules = {
 			steel = 1
 		}
 		add_stats = {
-			armor_value = 30
+			armor_value = 45
 			surface_visibility = 8
 		}
 		dismantle_cost_ic = 6200
@@ -2022,11 +2021,10 @@ equipment_modules = {
 			max_strength = 0.1
 		}
 		build_cost_resources = {
-			steel = 2
 			chromium = 1
 		}
 		add_stats = {
-			armor_value = 55
+			armor_value = 82
 			surface_visibility = 10
 		}
 		dismantle_cost_ic = 8200
@@ -2043,7 +2041,7 @@ equipment_modules = {
 		dismantle_cost_ic = 2500
 		
 		add_stats = {
-			armor_value = 6
+			armor_value = 9
 		}
 	}
 	ship_armor_cruiser_2 = {
@@ -2058,7 +2056,7 @@ equipment_modules = {
 		dismantle_cost_ic = 3000
 		
 		add_stats = {
-			armor_value = 8
+			armor_value = 12
 		}
 	}
 	ship_armor_cruiser_3 = {
@@ -2073,7 +2071,7 @@ equipment_modules = {
 		dismantle_cost_ic = 3500
 		
 		add_stats = {
-			armor_value = 10
+			armor_value = 15
 		}
 	}
 	ship_armor_cruiser_4 = {
@@ -2088,7 +2086,7 @@ equipment_modules = {
 		dismantle_cost_ic = 4000
 		
 		add_stats = {
-			armor_value = 12
+			armor_value = 18
 		}
 	}
 	ship_armor_carrier_deck = {
@@ -2105,7 +2103,7 @@ equipment_modules = {
 			naval_speed = -0.05
 		}
 		add_stats = {
-			armor_value = 5
+			armor_value = 7
 			max_strength = 25
 		}
 		dismantle_cost_ic = 2500

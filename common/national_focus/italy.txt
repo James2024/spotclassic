@@ -1435,7 +1435,7 @@ focus_tree = {
 		available = {
 			NOT = { has_country_flag = ENG_ditched_by_the_germans_flag }
 		}
-		x = -1
+		x = 0
 		y = 3
 		relative_position_id = ITA_submarine_effort
 		cost = 10
@@ -1491,7 +1491,7 @@ focus_tree = {
 		icon = GFX_goal_generic_demand_territory
 		prerequisite = { focus = ITA_victoryinETH }
 		available = {
-			date > 1937.11.1
+			date > 1938.6.1
 		}
 		x = 0
 		y = 1

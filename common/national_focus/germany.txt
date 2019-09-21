@@ -2059,7 +2059,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = GER_demand_sudetenland
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 10
 		}
@@ -2344,7 +2344,7 @@ focus_tree = {
 		icon = GFX_goal_generic_navy_doctrines_tactics
 		prerequisite = { focus = GER_naval_rearmament }
 		x = 0
-		y = 3
+		y = 1
 		relative_position_id = GER_naval_rearmament
 		cost = 5
 		ai_will_do = {
@@ -2486,7 +2486,7 @@ focus_tree = {
 		prerequisite = { focus = GER_naval_effort }
 		mutually_exclusive = { focus = GER_u_boat_effort focus = GER_rebuild_the_high_seas_fleet focus = GER_accept_british_naval_dominance }
 		x = -1
-		y = 3
+		y = 2
 		relative_position_id = GER_naval_effort
 		cost = 10
 		ai_will_do = {
@@ -2574,7 +2574,7 @@ focus_tree = {
 		prerequisite = { focus = GER_naval_effort }
 		mutually_exclusive = { focus = GER_plan_z focus = GER_rebuild_the_high_seas_fleet focus = GER_accept_british_naval_dominance }
 		x = 1
-		y = 3
+		y = 2
 		relative_position_id = GER_naval_effort
 		cost = 10
 		ai_will_do = {
@@ -2747,7 +2747,7 @@ focus_tree = {
 		}
 	}
 	
-focus = {
+	focus = {
 		id = GER_crossing_the_atlantic
 		icon = GFX_goal_generic_build_navy
 		prerequisite = { focus = GER_plan_z focus = GER_modular_construction }
@@ -2925,7 +2925,7 @@ focus = {
 		id = GER_defend_the_oil
 		prerequisite = { focus = GER_synthetic_rubber focus = GER_kdf_wagen}
 		icon = GFX_goal_generic_construct_military
-		x = -2
+		x = -1
 		y = 1
 		relative_position_id = GER_synthetic_rubber
 		cost = 1
@@ -2948,74 +2948,74 @@ focus = {
 		}
 		
 		completion_reward = {
-					42 = {
-						add_building_construction = {
-							type = anti_air_building
-							level = 2
-							instant_build = yes
-						}
-					}
-					50 = {
-						add_building_construction = {
-							type = anti_air_building
-							level = 2
-							instant_build = yes
-						}
-					}
-					55 = {
-						add_building_construction = {
-							type = anti_air_building
-							level = 2
-							instant_build = yes
-						}
-					}
-					59 = {
-						add_building_construction = {
-							type = anti_air_building
-							level = 2
-							instant_build = yes
-						}
-					}
-					64 = {
-						add_building_construction = {
-							type = anti_air_building
-							level = 2
-							instant_build = yes
-						}
-					}
-					51 = {
-						add_building_construction = {
-							type = anti_air_building
-							level = 2
-							instant_build = yes
-						}
-					}
-					54 = {
-						add_building_construction = {
-							type = anti_air_building
-							level = 2
-							instant_build = yes
-						}
-					}
-					66 = {
-						add_building_construction = {
-							type = anti_air_building
-							level = 2
-							instant_build = yes
-						}
-					}
-					58 = {
-						add_building_construction = {
-							type = anti_air_building
-							level = 2
-							instant_build = yes
-						}
-					}					
-					set_country_flag = air_defense_focus_built_max
+			42 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
 				}
 			}
+			50 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				}
+			}
+			55 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				}
+			}
+			59 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				}
+			}
+			64 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				}
+			}
+			51 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				}
+			}
+			54 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				}
+			}
+			66 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				}
+			}
+			58 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				}
+			}					
+			set_country_flag = air_defense_focus_built_max
 		}
-		
+	}
+}
+
 		
 		
 		

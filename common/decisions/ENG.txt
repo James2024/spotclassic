@@ -8790,7 +8790,12 @@ operations = {
 		}
 		
 		complete_effect = {
-			413 = { set_state_flag = german_oil_control }
+			413 = { clr_state_flag = german_oil_control }
+			GER = {
+				remove_resource_rights = 412
+				remove_resource_rights = 411
+				remove_resource_rights = 413
+			}
 			PER = {
 				give_resource_rights = { receiver = ENG state = 412 }
 				give_resource_rights = { receiver = ENG state = 413 }
@@ -9238,5 +9243,33 @@ ENG_enforce_the_naval_treaties = {
 		}
 
 	}
+
+}
+foreign_support = {
+
+	ENG_france_hold = {
+
+		icon = generic_political_actions
+
+		allowed = {
+			tag = ENG
+		}
+
+		cost = 0
+
+		fire_only_once = yes
+
+		visible = {
+		FRA = { controls_state = 16 }
+
+		}
+
+		complete_effect = {
+		custom_effect_tooltip = "Lets France do the Metropolitan France focus"
+			FRA = { set_country_flag = FRA_permitted } 
+		}
+
+	}
+
 
 }

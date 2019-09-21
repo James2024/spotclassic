@@ -16,7 +16,7 @@ focus_tree = {
 		focus = {
 		id = BUL_Monarch_Speech
 		icon = GFX_goal_tfv_strengthen_commonwealth_ties
-		x = 4
+		x = 5
 		y = 0
 		cost = 10
 
@@ -50,7 +50,7 @@ focus_tree = {
 	focus = {
 		id = BUL_University_Of_Sofia
 		prerequisite = { focus = BUL_Radar_Testing }
-		prerequisite = { focus = BUL_Break_Western_Ties }
+		
 		icon = GFX_focus_research
 		x = 7
 		y = 2
@@ -99,7 +99,7 @@ focus_tree = {
 				has_government = fascism
 			}
 		}
-		x = 4
+		x = 3
 		y = 1
 		cost = 5
 
@@ -114,7 +114,7 @@ focus_tree = {
 		id = BUL_Inspire_A_Generation
 		icon = GFX_goal_generic_propaganda
 		prerequisite = { focus = BUL_Break_Western_Ties }
-		x = 4
+		x = 2
 		y = 2
 		cost = 10
 
@@ -415,7 +415,7 @@ focus_tree = {
 				has_government = neutrality
 			}
 		}
-		x = 1
+		x = 5
 		y = 1
 		cost = 10
 
@@ -444,7 +444,7 @@ focus_tree = {
 		prerequisite = { focus = BUL_Break_Western_Ties }
 		prerequisite = { focus = BUL_Nationalism }
 
-		x = 1
+		x = 4
 		y = 2
 		cost = 5
 

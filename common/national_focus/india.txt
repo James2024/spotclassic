@@ -65,7 +65,7 @@ focus_tree = {
 	focus = {
 		id = RAJ_provincial_elections
 		icon = GFX_goal_generic_forceful_treaty
-		x = 2
+		x = 4
 		y = 0
 
 		cost = 10
@@ -154,7 +154,7 @@ focus_tree = {
 		id = RAJ_quit_india_movement
 		icon = GFX_goal_generic_propaganda
 		prerequisite = { focus = RAJ_cripps_mission }
-		x = -2
+		x = -4
 		y = 2
 		relative_position_id = RAJ_indian_national_congress
 
@@ -199,7 +199,7 @@ focus_tree = {
 		id = RAJ_cripps_mission
 		icon = GFX_goal_generic_major_alliance
 		prerequisite = { focus = RAJ_indian_national_congress }
-		x = 0
+		x = -2
 		y = 1
 		relative_position_id = RAJ_indian_national_congress
 
@@ -249,7 +249,7 @@ focus_tree = {
 		id = RAJ_two_nation_theory
 		icon = GFX_focus_RAJ_two_nation_theory
 		prerequisite = { focus = RAJ_cripps_mission }
-		x = 0
+		x = -2
 		y = 2
 		relative_position_id = RAJ_indian_national_congress
 
@@ -291,7 +291,7 @@ focus_tree = {
 		id = RAJ_princely_state_donations
 		icon = GFX_goal_generic_improve_relations
 		prerequisite = { focus = RAJ_indian_national_congress }
-		x = 2
+		x = 0
 		y = 1
 		relative_position_id = RAJ_indian_national_congress
 
@@ -550,7 +550,7 @@ focus_tree = {
 		id = RAJ_british_army_support
 		icon = GFX_goal_generic_cavalry
 		prerequisite = { focus = RAJ_indian_national_congress }
-		x = 5
+		x = 3
 		y = 1
 		relative_position_id = RAJ_indian_national_congress
 
@@ -1890,7 +1890,7 @@ focus_tree = {
 			432 = {
 				add_resource = {
 					type = oil
-					amount = 3
+					amount = 10
 				}
 			}
 		}

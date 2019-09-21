@@ -139,9 +139,9 @@ focus_tree = {
 		id = JAP_greater_east_asian_co_prosperity_sphere
 		icon = GFX_goal_generic_alliance
 		prerequisite = { focus = JAP_purge_the_kodoha_faction }
-		x = 0
-		y = 2
-		#relative_position_id = JAP_liaison_conference
+		x = -3
+		y = 1
+		relative_position_id = JAP_purge_the_kodoha_faction
 
 		cost = 2.9
 
@@ -823,7 +823,7 @@ focus_tree = {
 		id = JAP_national_mobilization_law
 		icon = GFX_goal_generic_axis_build_infantry
 		prerequisite = { focus = JAP_guide_the_zaibatsus focus = JAP_challenge_the_zaibatsus }
-		x = 2
+		x = 1
 		y = 1
 		relative_position_id = JAP_guide_the_zaibatsus
 
@@ -1595,7 +1595,7 @@ focus_tree = {
 	focus = {
 		id = JAP_southern_expansion_focus
 		icon = GFX_goal_generic_navy_doctrines_tactics
-		prerequisite = { focus = JAP_first_air_fleet focus = JAP_modern_escorts focus = JAP_the_ultimate_battleship }
+		prerequisite = { focus = JAP_first_air_fleet focus = JAP_the_ultimate_battleship }
 		mutually_exclusive = { focus = JAP_northern_expansion_focus }
 		relative_position_id = JAP_first_air_fleet
 		available = {
@@ -1609,8 +1609,8 @@ focus_tree = {
 
 		will_lead_to_war_with = ENG 
 		will_lead_to_war_with = HOL
-		x = 1
-		y = 2
+		x = 4
+		y = 1
 		cost = 0.8
 		
 		historical_ai = {
@@ -1650,7 +1650,7 @@ focus_tree = {
 		}
 
 		x = 0
-		y = 2
+		y = 1
 		cost = 0.8
 	
 		completion_reward = {
@@ -2608,7 +2608,7 @@ focus_tree = {
 		id = JAP_national_research_policy
 		icon = GFX_focus_research
 		prerequisite = { focus = JAP_national_mobilization_law }
-		x = 0
+		x = 1
 		y = 1
 		relative_position_id = JAP_national_mobilization_law
 
@@ -2688,7 +2688,7 @@ focus_tree = {
 		id = JAP_range_focus
 		icon = GFX_goal_generic_air_production
 		prerequisite = { focus = JAP_fighter_modernization }
-		x = -1
+		x = -2
 		y = 1
 		relative_position_id = JAP_fighter_modernization
 
@@ -2834,8 +2834,7 @@ focus_tree = {
 		id = JAP_strategic_bomber_effort
 		icon = GFX_goal_generic_air_bomber
 		prerequisite = { focus = JAP_range_focus }
-		prerequisite = { focus = JAP_bomber_modernization }
-		x = -1
+		x = -2
 		y = 3
 		relative_position_id = JAP_fighter_modernization
 

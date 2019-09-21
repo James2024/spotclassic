@@ -2647,6 +2647,21 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = available_designer
 			show_ideas_tooltip = ROM_leonidas_works
+			add_tech_bonus = {
+				name = ROM_mobile_tank_destroyers
+				uses = 1
+				bonus = 1
+				technology = basic_light_tank
+				technology = improved_light_tank
+				technology = advanced_light_tank
+				technology = basic_medium_tank
+				technology = improved_medium_tank
+				technology = advanced_medium_tank
+				technology = main_battle_tank
+				technology = basic_heavy_tank
+				technology = improved_heavy_tank
+				technology = advanced_heavy_tank
+			}
 		}
 	}
 
@@ -2686,7 +2701,16 @@ focus_tree = {
 				bonus = 1
 				ahead_reduction = 2
 				uses = 1
-				category = cat_heavy_armor
+				technology = basic_light_tank
+				technology = improved_light_tank
+				technology = advanced_light_tank
+				technology = basic_medium_tank
+				technology = improved_medium_tank
+				technology = advanced_medium_tank
+				technology = main_battle_tank
+				technology = basic_heavy_tank
+				technology = improved_heavy_tank
+				technology = advanced_heavy_tank
 			}
 		}
 	}

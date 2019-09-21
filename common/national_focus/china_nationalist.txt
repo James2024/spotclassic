@@ -89,6 +89,21 @@ focus_tree = {
 			PRC = {
 				country_event = generic.5
 			}
+			SHX = {
+				country_event = generic.5
+			}
+			XSM = {
+				country_event = generic.5
+			}
+			SIK = {
+				country_event = generic.5
+			}
+			YUN = {
+				country_event = generic.5
+			}
+			GXC = {
+				country_event = generic.5
+			}
 		}
 	}
 

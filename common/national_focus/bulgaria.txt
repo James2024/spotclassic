@@ -1166,9 +1166,18 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = armor_bonus
+				uses = 2
 				bonus = 1
-				uses = 1
-				category = armor
+				technology = basic_light_tank
+				technology = improved_light_tank
+				technology = advanced_light_tank
+				technology = basic_medium_tank
+				technology = improved_medium_tank
+				technology = advanced_medium_tank
+				technology = main_battle_tank
+				technology = basic_heavy_tank
+				technology = improved_heavy_tank
+				technology = advanced_heavy_tank
 			}
 		}
 	}

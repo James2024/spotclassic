@@ -130,7 +130,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_ideas = HUN_strengthen_fascists
-			add_popularity = { ideology = fascism popularity = 0.05 }
+			add_popularity = { ideology = fascism popularity = 0.10 }
 			set_party_name = { ideology = fascism long_name = HUN_arrow_cross_party_long name = HUN_arrow_cross_party }
 			hidden_effect = {
 				create_country_leader = {
@@ -267,7 +267,7 @@ focus_tree = {
 		id = HUN_trade_deal_with_germany
 		icon = GFX_goal_generic_trade
 		prerequisite = { focus = HUN_renounce_the_treaty_of_trianon }
-		x = 0
+		x = 1
 		y = 1
 		relative_position_id = HUN_renounce_the_treaty_of_trianon
 
@@ -307,7 +307,7 @@ focus_tree = {
 		id = HUN_joint_aluminum_mining_company
 		icon = GFX_goal_generic_construction2
 		prerequisite = { focus = HUN_trade_deal_with_germany }
-		x = 0
+		x = 1
 		y = 2
 		relative_position_id = HUN_renounce_the_treaty_of_trianon
 
@@ -347,7 +347,7 @@ focus_tree = {
 		id = HUN_join_axis
 		icon = GFX_goal_anschluss
 		prerequisite = { focus = HUN_joint_aluminum_mining_company }
-		x = 0
+		x = 1
 		y = 3
 		relative_position_id = HUN_renounce_the_treaty_of_trianon
 
@@ -380,7 +380,7 @@ focus_tree = {
 				is_in_faction_with = GER
 				GER = {
 					is_faction_leader = yes
-					has_government = fascist
+					has_government = fascism
 				}
 			} 
 		}
@@ -405,7 +405,7 @@ focus_tree = {
 		icon = GFX_goal_generic_forceful_treaty
 		prerequisite = { focus = HUN_renounce_the_treaty_of_trianon }
 		x = -2
-		y = 3
+		y = 1
 		relative_position_id = HUN_renounce_the_treaty_of_trianon
 
 		cost = 10

@@ -258,53 +258,14 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = ROM_license_german_equipment
-		icon = GFX_focus_generic_license_production
-		prerequisite = { focus = ROM_invite_german_advisors }
-		x = 1
-		y = 2
-		relative_position_id = ROM_trade_treaty_with_germany
-
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-			OR = {
-				is_in_faction = no
-				is_in_faction_with = GER
-			}
-		}
-
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		complete_tooltip = {
-
-		}
-
-		completion_reward = {
-			add_relation_modifier = {
-				target = GER
-				modifier = ROM_license_german_equipment
-			}
-		}
-	}
+	
 
 	focus = {
 		id = ROM_join_axis
 		icon = GFX_goal_support_fascism
 		prerequisite = { focus = ROM_invite_german_advisors }
 		x = 0
-		y = 3
+		y = 2
 		relative_position_id = ROM_trade_treaty_with_germany
 
 		cost = 10
@@ -359,7 +320,7 @@ focus_tree = {
 		icon = GFX_goal_generic_oil_refinery
 		prerequisite = { focus = ROM_join_axis }
 		x = 0
-		y = 4
+		y = 3
 		relative_position_id = ROM_trade_treaty_with_germany
 
 
@@ -2686,6 +2647,21 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = available_designer
 			show_ideas_tooltip = ROM_leonidas_works
+			add_tech_bonus = {
+				name = ROM_mobile_tank_destroyers
+				uses = 1
+				bonus = 1
+				technology = basic_light_tank
+				technology = improved_light_tank
+				technology = advanced_light_tank
+				technology = basic_medium_tank
+				technology = improved_medium_tank
+				technology = advanced_medium_tank
+				technology = main_battle_tank
+				technology = basic_heavy_tank
+				technology = improved_heavy_tank
+				technology = advanced_heavy_tank
+			}
 		}
 	}
 
@@ -2725,7 +2701,16 @@ focus_tree = {
 				bonus = 1
 				ahead_reduction = 2
 				uses = 1
-				category = cat_heavy_armor
+				technology = basic_light_tank
+				technology = improved_light_tank
+				technology = advanced_light_tank
+				technology = basic_medium_tank
+				technology = improved_medium_tank
+				technology = advanced_medium_tank
+				technology = main_battle_tank
+				technology = basic_heavy_tank
+				technology = improved_heavy_tank
+				technology = advanced_heavy_tank
 			}
 		}
 	}

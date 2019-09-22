@@ -76,18 +76,15 @@ focus_tree = {
 		}
 
 		available = {
-			OR = {
-				threat > 0.1
-				NOT = { has_government = democratic }
-			}
+			threat > 0.1
 		}
 
 		bypass = {
 
 		}
 
-		cancel_if_invalid = yes
-		continue_if_invalid = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
 		available_if_capitulated = yes
 
 		complete_tooltip = {
@@ -1583,7 +1580,21 @@ focus_tree = {
 				name = SAF_armor_effort
 				bonus = 2
 				uses = 1
-				category = armor
+				technology = basic_light_tank
+				technology = improved_light_tank
+				technology = advanced_light_tank
+				technology = basic_medium_tank
+				technology = improved_medium_tank
+				technology = basic_heavy_tank
+				technology = improved_heavy_tank
+			}
+			add_tech_bonus = {
+				name = SAF_armor_effort
+				bonus = 1
+				uses = 1
+				technology = advanced_light_tank
+				technology = advanced_medium_tank
+				technology = advanced_heavy_tank
 			}
 		}
 	}

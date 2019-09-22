@@ -435,9 +435,18 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = AST_sentinel_tank_project
-				bonus = 1.0
 				uses = 2
-				category = armor
+				bonus = 1
+				technology = basic_light_tank
+				technology = improved_light_tank
+				technology = advanced_light_tank
+				technology = basic_medium_tank
+				technology = improved_medium_tank
+				technology = advanced_medium_tank
+				technology = main_battle_tank
+				technology = basic_heavy_tank
+				technology = improved_heavy_tank
+				technology = advanced_heavy_tank
 			}
 		}
 	}
@@ -446,7 +455,6 @@ focus_tree = {
 		id = AST_airborne_defence
 		icon = GFX_goal_generic_special_forces
 		prerequisite = { focus = AST_specialize_equipment }
-		prerequisite = { focus = AST_volunteer_air_observers_corps }
 		x = 2
 		y = 4
 		relative_position_id = AST_additional_militia_training
@@ -2272,15 +2280,15 @@ focus_tree = {
 		}
 
 		available = {
-			threat > 0.20
+			threat > 0.10
 		}
 		
 		bypass = {
 
 		}
 
-		cancel_if_invalid = yes
-		continue_if_invalid = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
 		available_if_capitulated = yes
 
 		completion_reward = {

@@ -129,7 +129,9 @@ NDefines.NNavy.MISSION_SUPREMACY_RATIOS = { -- supremacy multipliers for differe
 		0.0, -- RESERVE_FLEET
 		0.4, -- NAVAL_INVASION_SUPPORT
 	}
+NDefines.NNavy.CONVOY_DEFENSE_MAX_CONVOY_TO_SHIP_RATIO = 15.0		-- each ship in convoy defense mission can at most cover this many convoys without losing efficiency
 
+	
 ---Military
 NDefines.NMilitary.RECON_SKILL_IMPACT = 8
 NDefines.NMilitary.FUEL_CAPACITY_DEFAULT_HOURS = 160 ---Vanilla 90 makes tanks store more fuel?

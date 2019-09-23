@@ -27,7 +27,7 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		bypass = {
-			550 = { NOT = { is_owned_and_controlled_by = ITA } }
+			#550 = { NOT = { is_owned_and_controlled_by = ITA } }
 			# Need province based trigger for this to work
 			#550 = {		
 			#	NOT = { 
@@ -43,7 +43,7 @@ focus_tree = {
 			#		} 
 			#	}
 			#}
-			559 = { NOT = { is_owned_and_controlled_by = ITA } }
+			#559 = { NOT = { is_owned_and_controlled_by = ITA } }
 			# Need province based trigger for this to work
 			#559 = {
 			#	NOT = { 
@@ -1531,7 +1531,7 @@ focus_tree = {
 	focus = {
 		id = ITA_bulgaria_friend
 		icon = GFX_goal_generic_improve_relations
-		prerequisite = { focus = ITA_slovenia_dalmatia_claims focus = ITA_yugoslavia_friend }
+		prerequisite = { focus = ITA_slovenia_dalmatia_claims }
 		x = 0
 		y = 1
 		relative_position_id = ITA_slovenia_dalmatia_claims

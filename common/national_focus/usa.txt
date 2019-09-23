@@ -581,6 +581,237 @@ focus_tree = {
 		}
 	}
 
+	
+	
+
+	focus = {
+		id = USA_neutrality_act
+		icon = GFX_goal_generic_neutrality_focus
+		x = 4
+		y = 1
+		prerequisite = { focus = USA_continue_the_new_deal }
+		mutually_exclusive = { focus = USA_limited_intervention }
+		relative_position_id = USA_continue_the_new_deal
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			congress_low_support_trigger = yes
+			democratic > 0.95
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = no
+
+		completion_reward = {
+		add_political_power = 400
+		add_ideas = USA_gold_standard
+			if = {
+				limit = {
+					OR = {
+						has_idea = undisturbed_isolation
+					}
+				}
+				add_ideas = isolation
+			}
+			else = {
+				add_political_power = 150 #refund if already at civilian economy
+			}
+			add_ideas = USA_neutrality_act 
+			add_war_support = -0.05
+			if = {
+				limit = {
+					has_war_support < 0.4
+				}
+				USA_congress_small_support = yes
+			}
+			custom_effect_tooltip = USA_lend_lease_act_neutrality_tt
+			hidden_effect = {
+				news_event = { id = mtg_news.3 days = 3 random = 5 }
+			}
+		}
+	}
+
+	focus = {
+		id = USA_reestablish_the_gold_standard
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		prerequisite = { focus = USA_neutrality_act }
+		relative_position_id = USA_neutrality_act
+		x = 0
+		y = 1
+		offset = {
+			x = -12
+			y = 0
+			trigger = {
+				not = { has_dlc = "Man the Guns" }
+			}
+		}
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_government = democratic
+			threat > .1
+		}
+		
+		bypass = {
+
+		}
+
+		continue_if_invalid = yes
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_political_power = 100
+			add_popularity = { ideology = democratic popularity = 0.05 }
+			remove_ideas = USA_gold_standard
+			add_ideas = USA_gold_standard2
+			USA_congress_small_support = yes
+		}
+	}
+
+	focus = {
+		id = USA_scientist_haven
+		icon = GFX_focus_research
+		prerequisite = { focus = USA_war_propaganda focus = USA_reestablish_the_gold_standard }
+		x = 1
+		y = 1
+		relative_position_id = USA_war_propaganda
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+
+		available_if_capitulated = yes
+		available = {
+			has_government = democratic
+		}
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	focus = {
+		id = USA_USACE_projects
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = USA_war_propaganda }
+		available = {
+			threat > 0.30
+		}
+		
+
+		continue_if_invalid = yes
+		
+		x = -1
+		y = 1
+		relative_position_id = USA_scientist_haven
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		complete_tooltip = {
+			every_state = {
+				limit = { has_state_flag = USA_USACE_projects_3AF }
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+			every_state = {
+				limit = { has_state_flag = USA_USACE_projects_3Inf }
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+			add_ideas = extensive_conscription
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					arms_factory > 0
+					free_building_slots = {
+						building = arms_factory
+						size > 2
+						include_locked = yes
+					}
+					OR = {
+						region = 117
+						region = 118
+						region = 119
+						region = 120
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = USA_USACE_projects_3AF
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+						include_locked = yes
+					}
+					OR = {
+						region = 117
+						region = 118
+						region = 119
+						region = 120
+					}
+					state_population > 3000000
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = USA_USACE_projects_3Inf
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+						include_locked = yes
+					}
+					OR = {
+						region = 117
+						region = 118
+						region = 119
+						region = 120
+					}
+					state_population > 3000000
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = USA_USACE_projects_3Inf
+			}
+			air_experience = 50
+			navy_experience = 50
+			army_experience = 10			
+		}
+	}
+	
 	focus = {
 		id = USA_military_construction
 		icon = GFX_goal_generic_build_tank
@@ -807,239 +1038,8 @@ focus_tree = {
 	}
 
 	focus = {
-		id = USA_USACE_projects
-		icon = GFX_goal_generic_production
-		prerequisite = { focus = USA_scientist_haven }
-		prerequisite = { focus = USA_war_propaganda }
-		available = {
-			threat > 0.30
-		}
-		
-
-		continue_if_invalid = yes
-		
-		x = -1
-		y = 1
-		relative_position_id = USA_scientist_haven
-		cost = 10
-		#ai_will_do = {
-		#	factor = 1
-		#}
-		complete_tooltip = {
-			every_state = {
-				limit = { has_state_flag = USA_USACE_projects_3AF }
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = arms_factory
-					level = 3
-					instant_build = yes
-				}
-			}
-			every_state = {
-				limit = { has_state_flag = USA_USACE_projects_3Inf }
-				add_building_construction = {
-					type = infrastructure
-					level = 3
-					instant_build = yes
-				}
-			}
-			add_ideas = extensive_conscription
-		}
-		completion_reward = {
-			random_owned_controlled_state = {
-				limit = {
-					arms_factory > 0
-					free_building_slots = {
-						building = arms_factory
-						size > 2
-						include_locked = yes
-					}
-					OR = {
-						region = 117
-						region = 118
-						region = 119
-						region = 120
-					}
-				}
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = arms_factory
-					level = 3
-					instant_build = yes
-				}
-				set_state_flag = USA_USACE_projects_3AF
-			}
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = infrastructure
-						size > 2
-						include_locked = yes
-					}
-					OR = {
-						region = 117
-						region = 118
-						region = 119
-						region = 120
-					}
-					state_population > 3000000
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 3
-					instant_build = yes
-				}
-				set_state_flag = USA_USACE_projects_3Inf
-			}
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = infrastructure
-						size > 2
-						include_locked = yes
-					}
-					OR = {
-						region = 117
-						region = 118
-						region = 119
-						region = 120
-					}
-					state_population > 3000000
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 3
-					instant_build = yes
-				}
-				set_state_flag = USA_USACE_projects_3Inf
-			}
-			air_experience = 50
-			navy_experience = 50
-			army_experience = 10			
-		}
-	}
-
-	focus = {
-		id = USA_neutrality_act
-		icon = GFX_goal_generic_neutrality_focus
-		x = 4
-		y = 1
-		prerequisite = { focus = USA_continue_the_new_deal }
-		mutually_exclusive = { focus = USA_limited_intervention }
-		relative_position_id = USA_continue_the_new_deal
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-			congress_low_support_trigger = yes
-			democratic > 0.95
-		}
-		
-		bypass = {
-
-		}
-
-		cancel_if_invalid = no
-		continue_if_invalid = yes
-		available_if_capitulated = no
-
-		completion_reward = {
-		add_political_power = 400
-		add_ideas = USA_gold_standard
-			if = {
-				limit = {
-					OR = {
-						has_idea = undisturbed_isolation
-					}
-				}
-				add_ideas = isolation
-			}
-			else = {
-				add_political_power = 150 #refund if already at civilian economy
-			}
-			add_ideas = USA_neutrality_act 
-			add_war_support = -0.05
-			if = {
-				limit = {
-					has_war_support < 0.4
-				}
-				USA_congress_small_support = yes
-			}
-			custom_effect_tooltip = USA_lend_lease_act_neutrality_tt
-			hidden_effect = {
-				news_event = { id = mtg_news.3 days = 3 random = 5 }
-			}
-		}
-	}
-
-	focus = {
-		id = USA_reestablish_the_gold_standard
-		icon = GFX_focus_usa_reestablish_the_gold_standard
-		prerequisite = { focus = USA_neutrality_act }
-		relative_position_id = USA_neutrality_act
-		x = 0
-		y = 1
-		offset = {
-			x = -12
-			y = 0
-			trigger = {
-				not = { has_dlc = "Man the Guns" }
-			}
-		}
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-		}
-		available = {
-			has_government = democratic
-			threat > .1
-		}
-		
-		bypass = {
-
-		}
-
-		continue_if_invalid = yes
-		available_if_capitulated = no
-
-		completion_reward = {
-			add_political_power = 100
-			add_popularity = { ideology = democratic popularity = 0.05 }
-			remove_ideas = USA_gold_standard
-			add_ideas = USA_gold_standard2
-			USA_congress_small_support = yes
-		}
-	}
-
-	focus = {
-		id = USA_scientist_haven
-		icon = GFX_focus_research
-		prerequisite = { focus = USA_war_propaganda focus = USA_reestablish_the_gold_standard }
-		x = 1
-		y = 1
-		relative_position_id = USA_war_propaganda
-		cost = 10
-		#ai_will_do = {
-		#	factor = 1
-		#}
-
-		available_if_capitulated = yes
-		available = {
-			has_government = democratic
-		}
-		completion_reward = {
-			add_research_slot = 1
-		}
-	}
-
-	focus = {
 		id = USA_the_giant_wakes
 		icon = GFX_goal_generic_construct_civ_factory
-		prerequisite = { focus = USA_scientist_haven }
 		prerequisite = { focus = USA_reestablish_the_gold_standard }
 		available = {
 			OR = {

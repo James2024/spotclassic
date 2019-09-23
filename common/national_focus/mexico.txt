@@ -1884,8 +1884,6 @@ focus_tree = {
 		available_if_capitulated = no
 		
 		completion_reward = {
-			
-			unlock_decision_tooltip = MEX_decision_interior_defence_plan
 		
 			483 = {
 				add_building_construction = { type = bunker province = 8033 level = 1 instant_build = yes }
@@ -4180,7 +4178,6 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
-			unlock_decision_tooltip = MEX_decision_support_spanish_fascists
 			add_popularity = {
 				ideology = fascism
 				popularity = 0.1
@@ -4267,7 +4264,6 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
-			unlock_decision_tooltip = MEX_decision_support_spanish_loyalists
 			
 			add_popularity = {
 				ideology = communism
@@ -5017,7 +5013,6 @@ focus_tree = {
 		
 		completion_reward = {
 		
-			unlock_decision_tooltip = MEX_decision_coastal_defence_plan
 			
 			481 = {
 				add_building_construction = { type = coastal_bunker province = 8057 level = 1 instant_build = yes }
@@ -5806,7 +5801,6 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
-			unlock_decision_tooltip = MEX_decision_operation_just_cause
 		}
 		will_lead_to_war_with = USA
 	}

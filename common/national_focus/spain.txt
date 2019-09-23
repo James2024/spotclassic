@@ -94,27 +94,6 @@ focus_tree = {
 			add_equipment_to_stockpile = { type = fighter1 amount = 200 producer = GER }
 			GER = {
 				air_experience = 100
-				}
-			}
-		}
-		
-	focus = {
-		id = SPR_consolidate_industry
-		icon = GFX_goal_generic_production
-		prerequisite = { focus = SPR_secure_civilian_industry }
-		x = 0
-		y = 1
-		relative_position_id = SPR_secure_civilian_industry
-		cost = 10
-		
-		available_if_capitulated = yes
-		
-		completion_reward = {
-			add_tech_bonus = {
-				name = industrial_bonus
-				bonus = 1
-				uses = 1
-				category = industry
 			}
 		}
 	}
@@ -226,7 +205,26 @@ focus_tree = {
 			}
 		}
 	}
-
+	focus = {
+		id = SPR_consolidate_industry
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = SPR_secure_civilian_industry }
+		x = 0
+		y = 1
+		relative_position_id = SPR_secure_civilian_industry
+		cost = 10
+		
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1
+				uses = 1
+				category = industry
+			}
+		}
+	}
 	
 	focus = {
 		id = SPR_rebuild_the_railways

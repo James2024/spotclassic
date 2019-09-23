@@ -401,42 +401,6 @@ ideas = {
 			traits = { silent_workhorse }
 		}
 
-		HUN_laszlo_rajk = {
-
-			picture = generic_communist_revolutionary_western_european_2d
-			
-			allowed = {
-				original_tag = HUN
-			}
-			
-			available = {
-				if = {
-					limit = { has_dlc = "Man the Guns" }	
-					NOT = { has_autonomy_state = autonomy_supervised_state }
-				}
-			}
-			
-			traits = { communist_revolutionary }
-		}
-
-		HUN_jozsef_szell = {
-
-			picture = generic_democratic_reformer_western_european_2d
-			
-			allowed = {
-				original_tag = HUN
-			}
-			
-			available = {
-				if = {
-					limit = { has_dlc = "Man the Guns" }	
-					NOT = { has_autonomy_state = autonomy_supervised_state }
-				}
-			}
-			
-			traits = { democratic_reformer }
-		}
-
 		HUN_gyula_gombos_de_jakfa = {
 
 			picture = generic_fascist_demagogue_western_european_2d
@@ -713,7 +677,6 @@ ideas = {
 			available = {
 				if = {
 					limit = { has_dlc = "Death or Dishonor" }
-					has_completed_focus = HUN_naval_warfare
 				}
 			}
 

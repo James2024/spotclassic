@@ -478,7 +478,6 @@ air_wings = {
 		tac_bomber_equipment_1 = {		# Ju 86
 			owner = "GER" 
 			amount = 100
-			version_name = "Ju 86"
 		}
 		name = "Kampfgeschwader 153"
 		# TODO: REMOVE THIS LATER ???

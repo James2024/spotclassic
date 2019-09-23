@@ -102,122 +102,7 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = SOV_move_industry_to_urals
-		icon = GFX_goal_generic_construct_civilian
-		prerequisite = { focus = SOV_smersh }
-		x = 0
-		y = 1
-		relative_position_id = SOV_smersh
-		cost = 5
-		ai_will_do = {
-			factor = 10
-			modifier = {
-				factor = 0
-				NOT = { has_war_with = GER }
-			}
-		}
-
-		available = {
-			OR = {
-				has_war_with = GER
-					GER = { controls_state = 126 }
-			}
-		}
-
-		bypass = {
-			NOT = { 219 = { is_owned_and_controlled_by = ROOT } }
-			NOT = { 195 = { is_owned_and_controlled_by = ROOT } }
-			NOT = { 242 = { is_owned_and_controlled_by = ROOT } }
-		}
-
-		completion_reward = {
-			unlock_decision_tooltip = SOV_relocate_industry_from_moscow
-			unlock_decision_tooltip = SOV_relocate_industry_from_leningrad
-			unlock_decision_tooltip = SOV_relocate_industry_from_smolensk			
-		}
-	}
-
-	focus = {
-		id = SOV_defense_of_moscow
-		icon = GFX_goal_generic_fortify_city
-		prerequisite = { focus = SOV_move_industry_to_urals }
-		available = {
-			#any_owned_state = {
-			#	any_neighbor_state = { state = 219 } # Moscow
-			#	NOT = { is_controlled_by = ROOT }
-			#} 
-		}
-		x = 0
-		y = 1
-		relative_position_id = SOV_move_industry_to_urals
-		cost = 5
-		ai_will_do = {
-			factor = 100
-		}	
-		completion_reward = {
-			army_experience = 5
-			219 = {
-				custom_effect_tooltip = SOV_defense_of_moscow_forts
-				hidden_effect = {
-					add_building_construction = {
-						type = bunker
-						level = 3
-						province = 3391
-						instant_build = yes
-					}
-					add_building_construction = {
-						type = bunker
-						level = 3
-						province = 6414
-						instant_build = yes
-					}
-					add_building_construction = {
-						type = bunker
-						level = 3
-						province = 9348
-						instant_build = yes
-					}
-					add_building_construction = {
-						type = bunker
-						level = 3
-						province = 301
-						instant_build = yes
-					}
-					add_building_construction = {
-						type = bunker
-						level = 3
-						province = 9378
-						instant_build = yes
-					}
-					add_building_construction = {
-						type = bunker
-						level = 3
-						province = 6283
-						instant_build = yes
-					}
-					add_building_construction = {
-						type = bunker
-						level = 3
-						province = 3259
-						instant_build = yes
-					}
-					add_building_construction = {
-						type = bunker
-						level = 3
-						province = 11282
-						instant_build = yes
-					}
-					add_building_construction = {
-						type = bunker
-						level = 4
-						province = 6380
-						instant_build = yes
-					}
-				}
-			}
-		}
-	}
+	
 
 	focus = {
 		id = SOV_production_effort
@@ -1589,25 +1474,6 @@ focus_tree = {
 			}
 		}
 	}
-	
-		focus = {
-		id = SOV_General_Frost
-		icon = GFX_goal_support_communism
-		prerequisite = { focus = SOV_lessons_of_war }
-		x = -2
-		y = 1
-		relative_position_id = SOV_lessons_of_war
-		cost = 1.5
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		
-		completion_reward = {
-			add_ideas = SOV_cold_acclimatization_army
-		}
-	}
 
 	focus = {
 		id = SOV_lessons_of_war
@@ -1662,7 +1528,24 @@ focus_tree = {
 			if = { limit = { has_idea = SOV_great_patriotic_war_5 } remove_ideas = SOV_great_patriotic_war_5 }			
 		}
 	}
+	focus = {
+		id = SOV_General_Frost
+		icon = GFX_goal_support_communism
+		prerequisite = { focus = SOV_lessons_of_war }
+		x = -2
+		y = 1
+		relative_position_id = SOV_lessons_of_war
+		cost = 1.5
+		ai_will_do = {
+			factor = 1
+		}
 
+		available_if_capitulated = yes
+		
+		completion_reward = {
+			add_ideas = SOV_cold_acclimatization_army
+		}
+	}
 
 	focus = {
 		id = SOV_research_city_experiment
@@ -1773,6 +1656,121 @@ focus_tree = {
 		completion_reward = {
 			#custom_effect_tooltip = SOV_smersh_tt
 			remove_ideas = trotskyite_plot_purged
+		}
+	}
+	focus = {
+		id = SOV_move_industry_to_urals
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = SOV_smersh }
+		x = 0
+		y = 1
+		relative_position_id = SOV_smersh
+		cost = 5
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0
+				NOT = { has_war_with = GER }
+			}
+		}
+
+		available = {
+			OR = {
+				has_war_with = GER
+					GER = { controls_state = 126 }
+			}
+		}
+
+		bypass = {
+			NOT = { 219 = { is_owned_and_controlled_by = ROOT } }
+			NOT = { 195 = { is_owned_and_controlled_by = ROOT } }
+			NOT = { 242 = { is_owned_and_controlled_by = ROOT } }
+		}
+
+		completion_reward = {
+			unlock_decision_tooltip = SOV_relocate_industry_from_moscow
+			unlock_decision_tooltip = SOV_relocate_industry_from_leningrad
+			unlock_decision_tooltip = SOV_relocate_industry_from_smolensk			
+		}
+	}
+	focus = {
+		id = SOV_defense_of_moscow
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = SOV_move_industry_to_urals }
+		available = {
+			#any_owned_state = {
+			#	any_neighbor_state = { state = 219 } # Moscow
+			#	NOT = { is_controlled_by = ROOT }
+			#} 
+		}
+		x = 0
+		y = 1
+		relative_position_id = SOV_move_industry_to_urals
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}	
+		completion_reward = {
+			army_experience = 5
+			219 = {
+				custom_effect_tooltip = SOV_defense_of_moscow_forts
+				hidden_effect = {
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 3391
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 6414
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 9348
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 301
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 9378
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 6283
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 3259
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 11282
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 4
+						province = 6380
+						instant_build = yes
+					}
+				}
+			}
 		}
 	}
 

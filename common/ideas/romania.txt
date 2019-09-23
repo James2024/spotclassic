@@ -714,48 +714,6 @@ ideas = {
 
 	political_advisor = {
 
-		ROM_iuliu_maniu = {
-
-			picture = generic_democratic_reformer_western_european_2d
-
-			allowed = {
-				original_tag = ROM
-			}
-			
-			available = {
-				if = {
-					limit = { has_dlc = "Man the Guns" }	
-					NOT = { has_autonomy_state = autonomy_supervised_state }
-				}
-			}
-			
-			traits = { democratic_reformer }
-		}
-
-		ROM_gheorghe_gheorghiu_dej = {
-
-			picture = generic_communist_revolutionary_western_european_2d
-
-			available = {
-				if = {
-					limit = {
-						has_dlc = "Death or Dishonor"
-					}
-					has_completed_focus = ROM_appoint_soviet_friendly_government
-				}
-				if = {
-					limit = { has_dlc = "Man the Guns" }	
-					NOT = { has_autonomy_state = autonomy_supervised_state }
-				}
-			}
-
-			allowed = {
-				original_tag = ROM
-			}
-			
-			traits = { communist_revolutionary }
-		}
-
 		ROM_gheorghe_argeseanu = {
 
 			picture = generic_army_europe_4

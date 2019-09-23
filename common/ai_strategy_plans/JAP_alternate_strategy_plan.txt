@@ -228,7 +228,6 @@ JAP_alternate_plan_strike_north = {
 		JAP_supremacy_of_technology
 		JAP_national_mobilization_law
 		JAP_national_research_policy
-		JAP_imperial_arsenals
 		JAP_modern_shogunate
 		JAP_prepare_for_war_with_the_soviet_union
 		JAP_the_manchurian_project

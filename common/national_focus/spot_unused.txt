@@ -8,6 +8,46 @@ focus_tree = {
 
 	default = no
 focus = {
+		id = ITA_yugoslavia_friend
+		icon = GFX_goal_generic_improve_relations
+		x = 1
+		y = 1
+		relative_position_id = ITA_victoryinETH
+		cost = 10
+		ai_will_do = {
+			factor = 0.25
+		}
+
+		available = {
+			country_exists = YUG
+			NOT = {
+				has_war_with = YUG
+			}
+		}
+
+		completion_reward = {
+			YUG = {
+				add_opinion_modifier = { target = ITA modifier = ita_diplomacy_focus }
+				if = {
+					limit = { ROOT = { has_government = fascism } }
+					add_timed_idea = { idea = fascist_influence days = 1095 }
+				}
+				if = {
+					limit = { ROOT = { has_government = democratic } }
+					add_timed_idea = { idea = democratic_influence days = 1095 }
+				}
+				if = {
+					limit = { ROOT = { has_government = communism } }
+					add_timed_idea = { idea = communist_influence days = 1095 }
+				}
+				country_event = { id = generic.1 }
+			}
+			hidden_effect = {
+				news_event = { id = news.193 }
+			}
+		}
+	}
+focus = {
 		id = CAN_patriation
 		icon = GFX_goal_tfv_sever_ties_with_uk #GFX_goal_generic_demand_territory
 		x = 2

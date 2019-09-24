@@ -14,6 +14,7 @@ country_event = {
 	
 	option = {
 		name = spot_commander_event.1.a
+		custom_effect_tooltip = spot_commander_infantry
 		
 		create_corps_commander = {
 			name = "Infantry Leader"
@@ -30,6 +31,7 @@ country_event = {
 	
 	option = {
 		name = spot_commander_event.1.b
+		custom_effect_tooltip = spot_commander_panzer
 		
 		create_corps_commander = {
 			name = "Panzer Leader "
@@ -45,13 +47,14 @@ country_event = {
 	
 	option = {
 		name = spot_commander_event.1.c
+		custom_effect_tooltip = spot_commander_special
 		
 		create_corps_commander = {
 			name = "Special forces Leader"
 			picture = ""
 			traits = { commando trait_engineer trickster naval_invader }
 			skill = 4
-			attack_skill = 4
+			attack_skill = 6
 			defense_skill = 3
 			planning_skill = 2
 			logistics_skill = 2

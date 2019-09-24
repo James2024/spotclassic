@@ -1,3 +1,6 @@
 ﻿l_english:
  ENG_fighter2:0 "Enables Production of the §YSupermarine Spitfire§"
  el_ala_forts_tt:0 "Build a §YLvl 5§! Fort in §YEl Alamain§! and in the tiles behind it.                                                                "
+ spot_commander_infantry:0 "§Y4§! Atk, §Y3§! Def, §Y2§! Plan, §Y3§! Log With §YInfantry Leader§! "
+ spot_commander_panzer:0 "§Y4§! Atk, §Y3§! Def, §Y2§! Plan, §Y3§! Log With §YPanzer Leader§! "
+ spot_commander_special:0 "§Y6§! Atk, §Y3§! Def, §Y2§! Plan, §Y3§! Log With §YCommando Engineer Trickster§! and §YNaval Invader§!                 "

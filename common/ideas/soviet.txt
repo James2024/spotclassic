@@ -1359,7 +1359,7 @@ ideas = {
 				armor = 0.15
 			}
 			
-			traits = { fast_tank_manufacturer }
+			traits = { SOV_fast_tank_manufacturer }
 			
 			modifier = {
 			}
@@ -1378,7 +1378,7 @@ ideas = {
 				armor = 0.15
 			}
 			
-			traits = { medium_tank_manufacturer }
+			traits = { SOV_medium_tank_manufacturer }
 			
 			modifier = {
 			}

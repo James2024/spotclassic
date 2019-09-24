@@ -62,7 +62,7 @@ leader_traits = {
 		}
 	}
 	
-	fast_tank_manufacturer = {
+	SOV_fast_tank_manufacturer = {
 		random = no
 		equipment_bonus = {
 			armor = {
@@ -75,7 +75,7 @@ leader_traits = {
 		}
 	}
 	
-	medium_tank_manufacturer = {
+	SOV_medium_tank_manufacturer = {
 		random = no
 		equipment_bonus = {
 			armor = {
@@ -88,7 +88,7 @@ leader_traits = {
 		}
 	}
 	
-	heavy_tank_manufacturer = {
+	SOV_heavy_tank_manufacturer = {
 		random = no
 		equipment_bonus = {
 			armor = {

@@ -106,15 +106,15 @@ NDefines.NNavy.GUN_HIT_PROFILES = { -- hit profiles for guns, if target ih profi
 	}
 NDefines.NNavy.ORG_COST_WHILE_MOVING = { -- org cost while the ships are moving
 		0.4, -- HOLD
-		0.2, -- PATROL		
-		0.25, -- STRIKE FORCE 
-		0.2, -- CONVOY RAIDING
-		0.2, -- CONVOY ESCORT
-		0.2, -- MINES PLANTING	
-		0.2, -- MINES SWEEPING	
-		0.2, -- TRAIN
-		0.3, -- RESERVE_FLEET
-		0.2, -- NAVAL_INVASION_SUPPORT
+		0.4, -- PATROL		
+		0.4, -- STRIKE FORCE 
+		0.4, -- CONVOY RAIDING
+		0.4, -- CONVOY ESCORT
+		0.4, -- MINES PLANTING	
+		0.4, -- MINES SWEEPING	
+		0.4, -- TRAIN
+		0.4, -- RESERVE_FLEET
+		0.4, -- NAVAL_INVASION_SUPPORT
 	}
 NDefines.NNavy.MISSION_SUPREMACY_RATIOS = { -- supremacy multipliers for different mission types
 		0.0, -- HOLD

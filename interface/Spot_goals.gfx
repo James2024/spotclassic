@@ -54,5 +54,21 @@ spriteTypes = {
 		name = "GFX_NATFRA_rightfullborders"
 		texturefile = "gfx/interface/goals/NATFRA_rightfullborders.dds"
 	}
+	SpriteType = {#
+		name = "GFX_DAH_FR_Prod"
+		texturefile = "gfx/interface/goals/DAH_FR_Prod.dds"
+	}
+	SpriteType = {#
+		name = "DAH_Fra_Cop"
+		texturefile = "gfx/interface/goals/DAH_Fra_Cop.dds"
+	}
+	SpriteType = {
+		name = "GFX_goal_NFA_De_Gaulle_Plan"
+		texturefile = "gfx/interface/goals/NFA_De_Gaulle_Plan.tga"
+	}
+	SpriteType = {
+		name = "GFX_goal_Paris"
+		texturefile = "gfx/interface/goals/goal_Paris.dds"
+	}
 
 }

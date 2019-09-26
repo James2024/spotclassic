@@ -45,6 +45,695 @@ foreign_politics = {
 		}		
 	}
 }
+# Category for Mexican military issues 
+MEX_category_military_issues = {
+
+	# Mission to deal with Cedillo before he rebels (historic date was January 1939)
+
+	MEX_mission_cedillos_rebellion = {
+
+		icon = generic_civil_support
+
+		allowed = {
+			original_tag = MEX
+		}
+		
+		visible = {
+			NOT = {original_tag = MEX}
+		}
+		available = {
+			OR = {
+				has_completed_focus = MEX_focus_support_general_cedillo
+				has_completed_focus = MEX_focus_arrest_general_cedillo
+			}
+			NOT = {original_tag = MEX}
+		}
+
+		days_mission_timeout = 150
+		#days_remove = 1
+
+		activation = {
+			OR = {
+			}
+		}
+
+		fixed_random_seed = no
+
+		fire_only_once = no
+
+		is_good = no
+
+		timeout_effect = {
+			if = {
+				limit = {
+					has_idea = MEX_cedillo_tension_4
+				}
+
+				remove_ideas = MEX_cedillo_tension_4
+
+				country_event = {
+					id = mexico.1
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = MEX_cedillo_tension_3
+				}
+				swap_ideas = {
+					remove_idea = MEX_cedillo_tension_3
+					add_idea = MEX_cedillo_tension_4
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = MEX_cedillo_tension_2
+				}
+				swap_ideas = {
+					remove_idea = MEX_cedillo_tension_2
+					add_idea = MEX_cedillo_tension_3
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = MEX_cedillo_tension
+				}
+				swap_ideas = {
+					remove_idea = MEX_cedillo_tension
+					add_idea = MEX_cedillo_tension_2
+				}
+			}
+		}
+	}
+
+	# Second Cristiada
+
+	MEX_mission_second_cristiada = {
+
+		icon = generic_civil_support
+
+		visible = {
+			NOT = {original_tag = MEX}
+		}
+		available = {
+			NOT = {original_tag = MEX}
+			OR = {
+				NOT = { has_idea = MEX_church_power_1 }
+				has_stability > 0.6
+				has_government = democratic
+				has_global_flag = flag_second_mexican_civil_war
+				has_civil_war = yes
+			}
+		}
+
+		days_mission_timeout = 150
+
+		activation = {
+			has_idea = MEX_church_power_1
+
+			has_stability < 0.6
+
+			NOT = { has_global_flag = flag_second_mexican_civil_war } # Second Cristiada / Second Mexican Revolution are mutually exclusive
+
+			NOT = { has_government = democratic } # Government has a genuine commitment to reform
+
+			has_civil_war = no
+			
+			OR = { # Domestic violence or antagonised world powers
+				has_completed_focus = MEX_focus_triumph_over_the_cristeros
+				has_completed_focus = MEX_focus_the_red_shirts
+				has_completed_focus = MEX_focus_international_proletarianism
+				has_completed_focus = MEX_focus_ejido_worker_militias
+				has_completed_focus = MEX_focus_bolivarian_alliance
+			}
+		}
+
+		allowed = {
+			original_tag = MEX
+		}
+
+		fixed_random_seed = no
+
+		fire_only_once = no
+
+		is_good = no
+
+		timeout_effect = {
+			set_global_flag = flag_second_mexican_civil_war
+			country_event = {
+				id = mexico.28
+			}
+		}
+	}
+
+	# Dummy decision to warn of Second Cristiada
+
+	MEX_mission_second_cristiada_dummy = {
+
+		icon = generic_civil_support
+
+		visible = {
+			NOT = {original_tag = MEX}
+		}
+		
+		available = {
+			NOT = {original_tag = MEX}
+			has_idea = MEX_church_power_1
+
+			has_stability < 0.6
+
+			NOT = { has_global_flag = flag_second_mexican_civil_war } # Second Cristiada / Second Mexican Revolution are mutually exclusive
+
+			has_civil_war = no
+			
+			NOT = { has_government = democratic } # Government has a genuine commitment to reform
+			
+			OR = { # Domestic violence or antagonised world powers
+				has_completed_focus = MEX_focus_triumph_over_the_cristeros
+				has_completed_focus = MEX_focus_the_red_shirts
+				has_completed_focus = MEX_focus_international_proletarianism
+				has_completed_focus = MEX_focus_ejido_worker_militias
+				has_completed_focus = MEX_focus_bolivarian_alliance
+			}
+		}
+
+		days_remove = 150
+
+		allowed = {
+			original_tag = MEX
+		}
+
+		visible = {
+			NOT = { has_global_flag = flag_second_mexican_civil_war }
+			OR = {
+				NOT = {
+					OR = {
+						has_completed_focus = MEX_focus_triumph_over_the_cristeros
+						has_completed_focus = MEX_focus_the_red_shirts
+						has_completed_focus = MEX_focus_international_proletarianism
+						has_completed_focus = MEX_focus_ejido_worker_militias
+						has_completed_focus = MEX_focus_bolivarian_alliance
+					}
+				}
+				has_stability > 0.6
+				has_idea = MEX_church_power_2
+				has_idea = MEX_church_power_3
+				has_idea = MEX_church_power_4
+				has_idea = MEX_church_power_5
+			}
+			has_civil_war = no
+		}
+
+		fixed_random_seed = no
+
+		fire_only_once = no
+
+		is_good = no
+
+		remove_effect = {
+			set_global_flag = flag_second_mexican_civil_war
+			country_event = {
+				id = mexico.28
+			}
+		}
+	}
+
+	# Second Revolution by anti-Church and far-left groups
+
+	MEX_mission_second_revolution = {
+
+		icon = generic_civil_support
+
+		visible = {
+			NOT = {original_tag = MEX}
+		}
+		
+		available = {
+			OR = {
+				NOT = {original_tag = MEX}
+				NOT = { has_idea = MEX_church_power_5 }
+				has_stability > 0.6
+				has_government = communism
+				has_global_flag = flag_second_mexican_civil_war
+				has_civil_war = yes
+			}
+		}
+
+		days_mission_timeout = 150
+
+		activation = {
+			has_idea = MEX_church_power_5
+
+			has_stability < 0.6
+
+			NOT = { has_global_flag = flag_second_mexican_civil_war } # Second Cristiada / Second Mexican Revolution are mutually exclusive
+
+			has_civil_war = no
+			
+			NOT = { has_government = communism } # Pro-Church communism (liberation theology?) in this context is ahistorical, but if the player pulls it off kudos
+
+			OR = { # Dissent from the people or elite
+				has_completed_focus = MEX_focus_purge_the_bureaucracy
+				has_completed_focus = MEX_focus_womens_suffrage
+				has_completed_focus = MEX_focus_end_land_reform
+				has_completed_focus = MEX_focus_royal_dutch_shell
+				has_completed_focus = MEX_focus_reform_the_cristero_guard
+			}
+		}
+
+		allowed = {
+			original_tag = MEX
+		}
+
+		fixed_random_seed = no
+
+		fire_only_once = no
+
+		is_good = no
+
+		timeout_effect = {
+			set_global_flag = flag_second_mexican_civil_war
+			country_event = {
+				id = mexico.30
+			}
+		}
+	}
+
+	# Dummy decision to warn of Second Revolution
+
+	MEX_mission_second_revolution_dummy = {
+
+		icon = generic_civil_support
+
+		visible = {
+			NOT = {original_tag = MEX}
+		}
+		
+		available = {
+			NOT = {original_tag = MEX}
+			has_idea = MEX_church_power_5
+
+			has_stability < 0.6
+
+			NOT = { has_global_flag = flag_second_mexican_civil_war } # Second Cristiada / Second Mexican Revolution are mutually exclusive
+
+			has_civil_war = no
+			
+			NOT = { has_government = communism } # Pro-Church communism (liberation theology?) in this context is ahistorical, but if the player pulls it off kudos
+
+			OR = { # Dissent from the people or elite
+				has_completed_focus = MEX_focus_purge_the_bureaucracy
+				has_completed_focus = MEX_focus_womens_suffrage
+				has_completed_focus = MEX_focus_end_land_reform
+				has_completed_focus = MEX_focus_royal_dutch_shell
+				has_completed_focus = MEX_focus_reform_the_cristero_guard
+			}
+		}
+
+		days_remove = 150
+
+		allowed = {
+			original_tag = MEX
+		}
+
+		visible = {
+			NOT = { has_global_flag = flag_second_mexican_civil_war }
+			OR = {
+				NOT = {
+					OR = {
+						has_completed_focus = MEX_focus_purge_the_bureaucracy
+						has_completed_focus = MEX_focus_womens_suffrage
+						has_completed_focus = MEX_focus_end_land_reform
+						has_completed_focus = MEX_focus_royal_dutch_shell
+						has_completed_focus = MEX_focus_reform_the_cristero_guard
+					}
+				}
+				has_stability > 0.6
+				has_idea = MEX_church_power_1
+				has_idea = MEX_church_power_2
+				has_idea = MEX_church_power_3
+				has_idea = MEX_church_power_4
+			}
+			has_civil_war = no
+		}
+
+		fixed_random_seed = no
+
+		fire_only_once = no
+
+		is_good = no
+
+		remove_effect = {
+			set_global_flag = flag_second_mexican_civil_war
+			country_event = {
+				id = mexico.30
+			}
+		}
+	}
+
+	# Seizure of the Panama Canal if Mexico controls the rest of Panama
+	# Can trigger an American declaration of war
+	
+	MEX_decision_operation_just_cause = { # Bahahaha
+	
+		icon = generic_nationalism
+
+		allowed = {
+			original_tag = MEX
+		}
+
+		visible = {
+			has_completed_focus = MEX_focus_seize_the_panama_canal
+			NOT = {
+				has_war_with = USA
+			}
+			NOT = {
+				is_in_faction_with = USA
+			}
+			NOT = {
+				controls_state = 685
+			}
+			USA = {
+				owns_state = 685
+			}
+		}
+		
+		available = {
+			NOT = {
+				has_non_aggression_pact_with = USA
+			}
+			NOT = {
+				has_war_with = USA
+			}
+			NOT = {
+				is_in_faction_with = USA
+			}
+			controls_state = 304
+			OR = {
+				owns_state = 304
+				"PAN" = {
+					owns_state = 304
+					has_war_with = MEX
+				}
+			}
+			USA = {
+				owns_state = 685
+			}
+		}
+
+		cost = 25
+		
+		fire_only_once = yes
+
+		complete_effect = {
+			if = {
+				limit = {
+					304 = {
+						is_owned_by = "PAN"
+						is_controlled_by = ROOT
+					}
+					ROOT = {
+						has_war_with = "PAN"
+					}
+				}
+				annex_country = { target = "PAN" }
+			}
+			add_named_threat = {
+				threat = 5
+				name = threat_mexico_attacks_panama_canal
+			}
+			start_border_war = {
+				change_state_after_war = no
+				attacker = {
+					state = 304
+					num_provinces = 2
+					on_win = mexico.40
+					on_lose = mexico.42
+					#on_cancel = 
+				}
+				
+				defender = {
+					state = 685
+					num_provinces = 1
+					on_win = mexico.41
+					on_lose = mexico.43
+					#on_cancel = 
+				}
+			}
+
+			add_opinion_modifier = {
+				target = USA
+				modifier = mexico_attack_on_panama_canal
+			}
+			
+			USA = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = mexico_attack_on_panama_canal
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	# Decision to send support to the communists in the Spanish Civil War
+
+	MEX_decision_support_spanish_loyalists = {
+	
+		icon = generic_nationalism
+		
+		fire_only_once = no
+
+		fixed_random_seed = no
+		
+		days_remove = 7
+
+		allowed = {
+			original_tag = MEX
+		}
+
+		visible = {
+			is_subject = no
+
+			has_completed_focus = MEX_focus_spanish_civil_war_refugees
+
+			NOT = { has_completed_focus = MEX_focus_falangist_veterans }
+
+			FROM = {
+				has_government = communism
+				has_civil_war = yes
+				NOT = { has_war_with = ROOT }
+			}
+		}
+
+		targets = { SPR D01 D02 D03 D04 D05 D06 D07 D08 D09 D10 D11 D12 D13 D14 D15 }
+
+		target_trigger = {
+			FROM = {
+				original_tag = SPR
+				has_government = communism
+				has_civil_war = yes
+			}
+		}
+		
+		available = {
+			has_completed_focus = MEX_focus_support_spains_loyalists
+
+			has_equipment = {
+				convoy > 2
+			}
+			
+			has_equipment = {
+				infantry_equipment > 249
+			}
+		}
+
+		modifier = {
+			
+		}
+		
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = convoy_1
+				amount = -3
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = -250
+			}			
+		}
+
+		remove_effect = {
+			random_list = {
+				60 = { # Shipment gets through
+					army_experience = 20
+					add_equipment_to_stockpile = {
+						type = convoy_1
+						amount = 3
+					}
+					FROM = {
+						country_event = { id = mexico.50 }
+					}
+				}
+				40 = { # Sunk by Italians
+					navy_experience = 25
+					country_event = { id = mexico.51 }
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	# Decision to send support to the fascists in the Spanish Civil War
+
+	MEX_decision_support_spanish_fascists = {
+	
+		icon = generic_nationalism
+		
+		fire_only_once = no
+		
+		fixed_random_seed = no
+
+		days_remove = 7
+
+		allowed = {
+			original_tag = MEX
+		}
+
+		visible = {
+			is_subject = no
+
+			has_completed_focus = MEX_focus_spanish_civil_war_refugees
+
+			NOT = { has_completed_focus = MEX_focus_support_spains_loyalists }
+
+			FROM = {
+				has_government = fascism
+				has_civil_war = yes
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		
+		targets = { SPR D01 D02 D03 D04 D05 D06 D07 D08 D09 D10 D11 D12 D13 D14 D15 }
+
+		target_trigger = {
+			FROM = {
+				original_tag = SPR
+				has_government = fascism
+				has_civil_war = yes
+			}
+		}
+
+		available = {
+			has_completed_focus = MEX_focus_falangist_veterans
+
+			has_equipment = {
+				convoy > 2
+			}
+			
+			has_equipment = {
+				infantry_equipment > 249
+			}
+		}
+
+		modifier = {
+			
+		}
+		
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = convoy_1
+				amount = -3
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = -250
+			}			
+		}
+
+		remove_effect = {
+			random_list = {
+				60 = { # Shipment gets through
+					army_experience = 20
+					add_equipment_to_stockpile = {
+						type = convoy_1
+						amount = 3
+					}
+					FROM = {
+						country_event = { id = mexico.50 }
+					}
+				}
+				40 = { # Sunk by loyalists
+					navy_experience = 25
+					country_event = { id = mexico.51 }
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	MEX_decision_interior_defence_plan = {
+	
+		icon = generic_operation
+		
+		available = {
+			has_war_with = USA
+		}
+		
+		visible = {
+			has_completed_focus = MEX_focus_interior_defence_plan
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		fire_only_once = yes
+		
+		days_remove = 180
+		
+		targeted_modifier = {
+			tag = USA
+			attack_bonus_against = 0.15
+			defense_bonus_against = 0.15
+		}
+	}
+
+	MEX_decision_coastal_defence_plan = {
+	
+		icon = generic_operation
+		
+		available = {
+			has_defensive_war = yes
+		}
+		
+		visible = {
+			has_completed_focus = MEX_focus_coastal_defence_plan
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		fire_only_once = yes
+		
+		days_remove = 180
+		
+		modifier = {
+			army_core_attack_factor = 0.15
+			army_core_defence_factor = 0.15
+		}
+	}
+
+}
 
 MEX_category_territorial_integration = {
 
@@ -52,15 +741,17 @@ MEX_category_territorial_integration = {
 	
 		icon = generic_nationalism
 		
-		visible = {
+		allowed = {
 			original_tag = MEX
+		}
+
+		visible = {
 			has_completed_focus = MEX_focus_unify_centroamerica
 			OR = {
 				NOT = {
 					313 = { is_core_of = ROOT }
 				}
-				any_country = {
-					original_tag = GUA
+				GUA = {
 					is_subject_of = ROOT
 				}
 			}
@@ -79,17 +770,11 @@ MEX_category_territorial_integration = {
 		cost = 50
 
 		days_remove = 60
+
+		cancel_if_not_visible = yes
 		
 		remove_effect = {
-			every_country = {
-				limit = {
-					original_tag = GUA
-					is_subject_of = ROOT
-				}
-				ROOT = {
-					annex_country = { target = PREV }
-				}
-			}
+			annex_country = { target = GUA }
 
 			add_state_core = 313
 
@@ -107,37 +792,40 @@ MEX_category_territorial_integration = {
 	
 		icon = generic_nationalism
 		
-		visible = {
+		allowed = {
 			original_tag = MEX
+		}
+
+		visible = {
 			has_completed_focus = MEX_focus_unify_centroamerica
 			OR = {
 				NOT = {
 					312 = { is_core_of = ROOT }
 				}
-				any_country = {
+				HON = {
 					is_subject_of = ROOT
 				}
 			}
 		}
 		
 		available = {
-			controls_state = 312
+			OR = {
+				controls_state = 312
+				HON = {
+					is_subject_of = ROOT
+				}
+			}
 			has_completed_focus = MEX_focus_integrate_the_south
 		}
 
 		cost = 50
 
 		days_remove = 60
+
+		cancel_if_not_visible = yes
 		
 		remove_effect = {
-			every_country = {
-				limit = {
-					is_subject_of = ROOT
-				}
-				ROOT = {
-					annex_country = { target = PREV }
-				}
-			}
+			annex_country = { target = HON }
 
 			add_state_core = 312
 
@@ -155,14 +843,17 @@ MEX_category_territorial_integration = {
 	
 		icon = generic_nationalism
 		
-		visible = {
+		allowed = {
 			original_tag = MEX
+		}
+
+		visible = {
 			has_completed_focus = MEX_focus_unify_centroamerica
 			OR = {
 				NOT = {
 					314 = { is_core_of = ROOT }
 				}
-				any_country = {
+				ELS = {
 					is_subject_of = ROOT
 				}
 			}
@@ -171,6 +862,9 @@ MEX_category_territorial_integration = {
 		available = {
 			OR = {
 				controls_state = 314
+				ELS = {
+					is_subject_of = ROOT
+				}
 			}
 			has_completed_focus = MEX_focus_integrate_the_south
 		}
@@ -178,16 +872,11 @@ MEX_category_territorial_integration = {
 		cost = 50
 
 		days_remove = 60
+
+		cancel_if_not_visible = yes
 		
 		remove_effect = {
-			every_country = {
-				limit = {
-					is_subject_of = ROOT
-				}
-				ROOT = {
-					annex_country = { target = PREV }
-				}
-			}
+			annex_country = { target = ELS }
 
 			add_state_core = 314
 
@@ -205,14 +894,17 @@ MEX_category_territorial_integration = {
 	
 		icon = generic_nationalism
 		
-		visible = {
+		allowed = {
 			original_tag = MEX
+		}
+
+		visible = {
 			has_completed_focus = MEX_focus_unify_centroamerica
 			OR = {
 				NOT = {
 					317 = { is_core_of = ROOT }
 				}
-				any_country = {
+				NIC = {
 					is_subject_of = ROOT
 				}
 			}
@@ -221,6 +913,9 @@ MEX_category_territorial_integration = {
 		available = {
 			OR = {
 				controls_state = 317
+				NIC = {
+					is_subject_of = ROOT
+				}
 			}
 			has_completed_focus = MEX_focus_integrate_the_south
 		}
@@ -228,16 +923,11 @@ MEX_category_territorial_integration = {
 		cost = 50
 
 		days_remove = 60
+
+		cancel_if_not_visible = yes
 		
 		remove_effect = {
-			every_country = {
-				limit = {
-					is_subject_of = ROOT
-				}
-				ROOT = {
-					annex_country = { target = PREV }
-				}
-			}
+			annex_country = { target = NIC }
 
 			add_state_core = 317
 
@@ -255,15 +945,17 @@ MEX_category_territorial_integration = {
 	
 		icon = generic_nationalism
 		
-		visible = {
+		allowed = {
 			original_tag = MEX
+		}
+
+		visible = {
 			has_completed_focus = MEX_focus_unify_centroamerica
 			OR = {
 				NOT = {
 					316 = { is_core_of = ROOT }
 				}
-				any_country = {
-					original_tag = COS
+				COS = {
 					is_subject_of = ROOT
 				}
 			}
@@ -282,17 +974,11 @@ MEX_category_territorial_integration = {
 		cost = 50
 
 		days_remove = 60
+
+		cancel_if_not_visible = yes
 		
 		remove_effect = {
-			every_country = {
-				limit = {
-					original_tag = COS
-					is_subject_of = ROOT
-				}
-				ROOT = {
-					annex_country = { target = PREV }
-				}
-			}
+			annex_country = { target = COS }
 			
 			add_state_core = 316
 
@@ -309,16 +995,18 @@ MEX_category_territorial_integration = {
 	MEX_decision_integrate_panama = {
 	
 		icon = generic_nationalism
-		
-		visible = {
+
+		allowed = {
 			original_tag = MEX
+		}
+
+		visible = {
 			has_completed_focus = MEX_focus_unify_centroamerica
 			OR = {
 				NOT = {
 					304 = { is_core_of = ROOT }
 				}
-				any_country = {
-					original_tag = "PAN"
+				"PAN" = {
 					is_subject_of = ROOT
 				}
 			}
@@ -338,16 +1026,10 @@ MEX_category_territorial_integration = {
 
 		days_remove = 60
 		
+		cancel_if_not_visible = yes
+
 		remove_effect = {
-			every_country = {
-				limit = {
-					original_tag = "PAN"
-					is_subject_of = ROOT
-				}
-				ROOT = {
-					annex_country = { target = PREV }
-				}
-			}
+			annex_country = { target = "PAN" }
 			
 			add_state_core = 304
 
@@ -365,8 +1047,11 @@ MEX_category_territorial_integration = {
 	
 		icon = generic_nationalism
 		
-		visible = {
+		allowed = {
 			original_tag = MEX
+		}
+
+		visible = {
 			has_completed_focus = MEX_focus_unify_centroamerica
 			NOT = {
 				685 = { is_core_of = ROOT }
@@ -399,15 +1084,17 @@ MEX_category_territorial_integration = {
 	
 		icon = generic_nationalism
 		
-		visible = {
+		allowed = {
 			original_tag = MEX
+		}
+
+		visible = {
 			has_completed_focus = MEX_focus_unify_centroamerica
 			OR = {
 				NOT = {
 					311 = { is_core_of = ROOT }
 				}
-				any_country = {
-					original_tag = BLZ
+				BLZ = {
 					is_subject_of = ROOT
 				}
 			}
@@ -427,16 +1114,10 @@ MEX_category_territorial_integration = {
 
 		days_remove = 30
 		
+		cancel_if_not_visible = yes
+
 		remove_effect = {
-			every_country = {
-				limit = {
-					original_tag = BLZ
-					is_subject_of = ROOT
-				}
-				ROOT = {
-					annex_country = { target = PREV }
-				}
-			}
+			annex_country = { target = BLZ }
 			
 			add_state_core = 311
 
@@ -457,8 +1138,11 @@ MEX_category_territorial_integration = {
 	
 		icon = generic_nationalism
 		
-		visible = {
+		allowed = {
 			original_tag = MEX
+		}
+
+		visible = {
 			has_completed_focus = MEX_focus_liberate_the_caribbean
 			NOT = {
 				315 = { is_core_of = ROOT }
@@ -490,8 +1174,11 @@ MEX_category_territorial_integration = {
 	
 		icon = generic_nationalism
 		
-		visible = {
+		allowed = {
 			original_tag = MEX
+		}
+
+		visible = {
 			has_completed_focus = MEX_focus_liberate_the_caribbean
 			NOT = {
 				318 = { is_core_of = ROOT }
@@ -523,8 +1210,11 @@ MEX_category_territorial_integration = {
 	
 		icon = generic_nationalism
 		
-		visible = {
+		allowed = {
 			original_tag = MEX
+		}
+
+		visible = {
 			has_completed_focus = MEX_focus_liberate_the_caribbean
 			NOT = {
 				319 = { is_core_of = ROOT }
@@ -566,7 +1256,7 @@ MEX_category_church_power = {
 		
 		days_remove = 90
 		
-		visible = {
+		allowed = {
 			original_tag = MEX
 		}
 		
@@ -586,6 +1276,7 @@ MEX_category_church_power = {
 			factor = 0
 			modifier = {
 				add = 10
+				has_active_mission = MEX_mission_second_cristiada
 				date > 1938.1.1
 			}
 		}
@@ -599,7 +1290,7 @@ MEX_category_church_power = {
 		
 		days_remove = 90
 		
-		visible = {
+		allowed = {
 			original_tag = MEX
 		}
 		
@@ -617,6 +1308,7 @@ MEX_category_church_power = {
 			factor = 0
 			modifier = {
 				add = 10
+				has_active_mission = MEX_mission_second_revolution
 				date > 1938.1.1
 			}
 		}
@@ -630,7 +1322,7 @@ MEX_category_church_power = {
 		
 		days_remove = 30
 		
-		visible = {
+		allowed = {
 			original_tag = MEX
 		}
 		
@@ -668,7 +1360,7 @@ MEX_category_church_power = {
 		
 		days_remove = 30
 		
-		visible = {
+		allowed = {
 			original_tag = MEX
 		}
 		
@@ -705,7 +1397,7 @@ MEX_category_church_power = {
 		
 		days_remove = 30
 		
-		visible = {
+		allowed = {
 			original_tag = MEX
 		}
 		
@@ -742,7 +1434,7 @@ MEX_category_church_power = {
 		
 		days_remove = 30
 		
-		visible = {
+		allowed = {
 			original_tag = MEX
 		}
 		
@@ -778,7 +1470,7 @@ MEX_category_church_power = {
 		
 		days_remove = 90
 		
-		visible = {
+		allowed = {
 			original_tag = MEX
 		}
 		
@@ -817,7 +1509,7 @@ MEX_category_church_power = {
 		
 		days_remove = 90
 		
-		visible = {
+		allowed = {
 			original_tag = MEX
 		}
 		
@@ -859,18 +1551,25 @@ MEX_category_hispanic_solidarity = {
 		fire_only_once = no
 		
 		days_remove = 150
+
+		allowed = {
+			original_tag = MEX
+		}
 		
 		visible = {
-			original_tag = MEX
 			is_faction_leader = yes
+		}
+		
+		target_root_trigger = {
 			OR = {
 				has_completed_focus = MEX_focus_hispanic_alliance
 				has_completed_focus = MEX_focus_bolivarian_alliance
 			}
 		}
-		
+
 		target_trigger = {
 			FROM = {
+				NOT = { is_in_faction_with = ROOT }
 				capital_scope = {
 					is_on_continent = south_america
 				}
@@ -892,8 +1591,6 @@ MEX_category_hispanic_solidarity = {
 			}
 			FROM = {
 				is_in_faction = no
-			}
-			FROM = {
 				is_subject = no
 			}
 			if = {

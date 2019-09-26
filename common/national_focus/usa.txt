@@ -1081,10 +1081,9 @@ focus_tree = {
 		}
 
 		available = {
-			GER = {
-				has_war = yes
+		custom_trigger_tooltip = {
+				tooltip = USA_lend_lease_act_neutrality_tt
 			}
-
 			if = {
 				limit = {
 					has_war_support > 0.4
@@ -1094,18 +1093,20 @@ focus_tree = {
 			else = {
 				congress_high_support_trigger = yes
 			}
-			custom_trigger_tooltip = {
-				tooltip = USA_lend_lease_act_neutrality_tt
-			}
 			if = {
-				limit = {
-					has_completed_focus = USA_neutrality_act
-				}
-				any_other_country = {
-					is_major = yes
-					has_government = ROOT
-					has_war = yes
-					surrender_progress > 0
+				OR = {
+					has_completed_focus = USA_limited_intervention
+					date > 1939.9.1
+					AND ={
+						any_other_country = {
+							AND = {
+								is_major = yes
+								has_government = ROOT
+								has_war = yes
+								surrender_progress > 0
+							}
+						}
+					}
 				}
 			}
 		}

@@ -322,12 +322,12 @@ create_corps_commander = {
 	name = "Georgy Zhukov"
 	id = 410
 		picture = "Portrait_Soviet_Gregory_Zhukov.dds"
-	traits = { winter_specialist armor_officer media_personality war_hero }
+	traits = { winter_specialist armor_officer media_personality war_hero panzer_leader trickster trait_cautious brilliant_strategist trait_engineer ranger }
 	skill = 5
 
 	
 	attack_skill = 4
-	defense_skill = 2
+	defense_skill = 5
 	planning_skill = 4
 	logistics_skill = 5
 }
@@ -347,13 +347,13 @@ create_corps_commander = {
 	name = "Konstantin Rokossovsky"
 	id = 402
 		picture = "Portrait_Soviet_Konstantin_Rokossovsky.dds"
-	traits = { armor_officer panzer_leader trickster trait_cautious brilliant_strategist trait_engineer ranger }
-	skill = 5
+	traits = {  armor_officer trait_cautious brilliant_strategist }
+	skill = 4
 	
-	attack_skill = 4
-	defense_skill = 5
-	planning_skill = 4
-	logistics_skill = 3
+	attack_skill = 3
+	defense_skill = 4
+	planning_skill = 2
+	logistics_skill = 4
 }
 
 create_corps_commander = {

@@ -19,6 +19,24 @@ ideas = {
 			}
 		}
 		
+		SOV_isolated_economy2 = {
+			allowed = {
+				always = no
+				}
+			
+			removal_cost = -1
+			
+			picture = generic_production_bonus
+			
+			modifier = {
+				production_speed_buildings_factor = 0.15
+				industrial_capacity_factory = 0.15
+				industrial_capacity_dockyard = 0.15
+				research_speed_factor = 0.10
+				consumer_goods_factor = -0.1
+			}
+		}
+		
 		SOV_cold_acclimatization_army = {
 			allowed = {
 				always = no
@@ -31,26 +49,6 @@ ideas = {
 			modifier = {
 				acclimatization_cold_climate_gain_factor = 0.5
 				winter_attrition_factor = -0.3
-			}
-		}
-				
-	
-		SOV_war_bonds = {
-			
-			allowed = {
-				always = no # Added via event
-			}
-			
-			removal_cost = -1
-
-			allowed_civil_war = {
-				always = yes
-			}
-
-			picture = generic_goods_red_bonus
-			
-			modifier = {
-				consumer_goods_factor = -0.05
 			}
 		}
 	
@@ -677,6 +675,22 @@ ideas = {
 
 
 	political_advisor = {
+	
+		evsei_liberman = {
+
+			picture = generic_political_advisor_europe_6
+			
+			allowed = {
+				original_tag = SOV
+			}
+			
+			traits = { war_industrialist }
+
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		
 		mikhail_kalinin = {
 			
 			

@@ -1485,7 +1485,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = SOV_nkvd_divisions
-		cost = 10
+		cost = 1
 		ai_will_do = {
 			factor = 1
 			modifier = {
@@ -1498,10 +1498,16 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.5
+				uses = 1
+				name = mech_army_bonus
+				technology = mechanised_infantry2
+			}
 			army_experience = 20
 			add_tech_bonus = {
 				name = armor_bonus
-				bonus = 1
+				bonus = 2
 				uses = 1
 				category = armor
 			}
@@ -1773,50 +1779,6 @@ focus_tree = {
 			}
 		}
 	}
-
-	focus = {
-		id = SOV_return_of_the_heroes
-		icon = GFX_focus_ger_great_red_menace
-		
-		available = {
-			has_war_with = GER 
-		}
-		
-		relative_position_id = SOV_move_industry_to_urals
-		prerequisite = { focus = SOV_defense_of_moscow }
-		x = 0
-		y = 2
-		cost = 13
-	
-		completion_reward = {
-			create_corps_commander = {
-				name = "Konstantin Rokossovsky"
-				id = 402
-					picture = "Portrait_Soviet_Konstantin_Rokossovsky.dds"
-				traits = { armor_officer panzer_leader trickster trait_cautious brilliant_strategist trait_engineer ranger }
-				skill = 5
-				
-				attack_skill = 4
-				defense_skill = 5
-				planning_skill = 4
-				logistics_skill = 3
-			}
-					
-			create_corps_commander = {
-				name = "Aleksandr Vasilevsky"
-				id = 407
-					picture = "Portrait_Soviet_Aleksandr_Vasilevsky.dds"
-				traits = { armor_officer politically_connected trait_cautious harsh_leader skilled_staffer panzer_leader organizer }
-				skill = 4
-
-				
-				attack_skill = 4
-				defense_skill = 4
-				planning_skill = 3
-				logistics_skill = 2
-			}
-		}
-	}
 	
 	focus = {
 		id = SOV_the_allies
@@ -1832,11 +1794,11 @@ focus_tree = {
 		prerequisite = { focus = SOV_anti_fascist_diplomacy }
 	
 		available = {
-			JAP = { 
-			controls_state = 336
-			controls_state = 672
-			controls_state = 335
-			controls_state = 333
+			ENG = { 
+				NOT = { controls_state = 336 }
+			}
+			MAL = {
+				NOT = { controls_state = 336 }
 			}
 		}
 		
@@ -1845,9 +1807,21 @@ focus_tree = {
 			set_technology = { fuel_silos = 1 }
 			add_tech_bonus = {
 				name = GER_coal_liquidization
-				bonus = 2
-				uses = 2
+				bonus = 3
+				uses = 4
 				category = synth_resources
+			}
+			653 = {
+				add_resource = {
+					type = rubber
+					amount = 20
+				}
+			}
+			572 = {
+				add_resource = {
+					type = rubber
+					amount = 20
+				}
 			}
 			582 = {
 				add_extra_state_shared_building_slots = 4

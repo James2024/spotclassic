@@ -54,6 +54,9 @@ NDefines.NProduction.EQUIPMENT_MODULE_REPLACE_XP_COST = 0.0		-- XP cost for repl
 NDefines.NProduction.EQUIPMENT_MODULE_CONVERT_XP_COST = 0.0		-- XP cost for converting one equipment module to a related module when creating an equipment variant.
 NDefines.NProduction.EQUIPMENT_MODULE_REMOVE_XP_COST = 0.0		-- XP cost for removing an equipment module and leaving the slot empty when creating an equipment variant.
 
+--- Technology
+NDefines.NTechnology.LICENSE_PRODUCTION_TECH_BONUS = 0.4	-- License production tech bonus
+
 --- Navy
 NDefines.NNavy.LEADER_EXPERIENCE_SCALE = 0.5
 NDefines.NNavy.SCREEN_RATIO_FOR_FULL_SCREENING_FOR_CAPITALS = 3.0

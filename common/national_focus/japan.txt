@@ -1874,7 +1874,7 @@ focus_tree = {
 		mutually_exclusive = { focus = JAP_southern_expansion_focus }
 		relative_position_id = JAP_supremacy_of_will
 		available = {
-		 date > 1940.10.1
+		 date > 1940.11.1
 		}
 
 		x = 0
@@ -2265,7 +2265,7 @@ focus_tree = {
 		    	NOT = { is_in_faction_with = ENG }
 		    	NOT = { is_in_faction_with = HOL }
 		    }
-		    date > 1940.10.1
+		    date > 1940.11.1
 		}
 
 		will_lead_to_war_with = ENG 

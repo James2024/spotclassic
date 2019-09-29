@@ -170,7 +170,7 @@ NDefines.NMilitary.ANTI_AIR_ATTACK_TO_AMOUNT = 0.005 -- 0.005 is now vanilla
 NDefines.NMilitary.ANTI_AIR_TARGETTING_TO_CHANCE = 0.025 --0.07
 
 ---Air
-NDefines.NAir.COMBAT_MULTIPLANE_CAP = 1.5 --- 3 -> 1.5
+NDefines.NAir.COMBAT_MULTIPLANE_CAP = 2 --- 3 -> 1.5
 NDefines.NAir.DISRUPTION_FACTOR = 5  --- (4 -> 5)
 NDefines.NAir.ESCORT_FACTOR = 2.5 -- (2 -> 2.5)
 NDefines.NAir.AIR_DEPLOYMENT_DAYS = 1							-- Days to deploy one air wing

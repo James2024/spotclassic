@@ -8932,20 +8932,22 @@ operations = {
 		allowed = {
 			tag = ENG
 		}
+		visible = {
+			IRE = { is_ai = yes }
+			IRE = { exists = yes }
+		}
 		
 		available = {
 			tag = ENG
 			has_government = democratic
 			has_war_with = GER
-			IRE = { exists = yes }
-			NOT = { is_in_faction_with = IRE }
 			NOR = { has_capitulated = yes }
 			is_in_faction_with = NOR
 			FRA = { has_capitulated = yes }
 			is_in_faction_with = FRA
 		}
 
-		cost = 50
+		cost = 0
 
 		ai_will_do = {
 			factor = 0
@@ -8965,18 +8967,11 @@ operations = {
 			}
 		}
 		
-		visible = {
-			tag = ENG
-			has_war_with = GER
-			IRE = { exists = yes }
-		}
-		
 		complete_effect = {
-			add_state_claim = 113
-			add_state_claim = 134
-			add_state_claim = 135
-			declare_war_on = { target = IRE type = annex_everything }
-			add_popularity = { ideology = democratic popularity = -0.03 }
+			annex_country = {
+				target = IRE
+				transfer_troops = yes
+			}
 		}
 	}
 

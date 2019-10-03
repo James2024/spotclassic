@@ -1566,7 +1566,6 @@ focus_tree = {
 			add_state_core = 539
 			add_political_power = 150
 			set_capital = 539
-			add_equipment_to_stockpile = { type = convoy_1 amount = 200 producer = FRA }
 		}
 	}
 	

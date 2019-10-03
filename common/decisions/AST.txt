@@ -24,7 +24,7 @@ empire_actions = {
 		complete_effect = {
 			annex_country = {
 				target = NZL
-				transfer_troops = no
+				transfer_troops = yes
 			}
 		}
 	}

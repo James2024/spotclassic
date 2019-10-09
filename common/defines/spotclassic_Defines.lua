@@ -170,6 +170,8 @@ NDefines.NMilitary.ANTI_AIR_ATTACK_TO_AMOUNT = 0.005 -- 0.005 is now vanilla
 NDefines.NMilitary.ANTI_AIR_TARGETTING_TO_CHANCE = 0.025 --0.07
 
 ---Air
+NDefines.NAir.ENEMY_AIR_SUPERIORITY_IMPACT = -0.2
+NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_SPEED_IMPACT = -0.2
 NDefines.NAir.COMBAT_MULTIPLANE_CAP = 2 --- 3 -> 1.5
 NDefines.NAir.DISRUPTION_FACTOR = 5  --- (4 -> 5)
 NDefines.NAir.ESCORT_FACTOR = 2.5 -- (2 -> 2.5)

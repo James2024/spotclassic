@@ -160,7 +160,7 @@ NDefines.NMilitary.EFFICIENCY_REGION_CHANGE_DAILY_GAIN_STRATEGIC_BOMBER = 0.018
 NDefines.NMilitary.EXPERIENCE_COMBAT_FACTOR = 0.1
 
 ---No air Russia balances
-NDefines.NAir.ENEMY_AIR_SUPERIORITY_IMPACT = -0.25
+NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_IMPACT = -0.25
 NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_SPEED_IMPACT = -0.2
 ---NDefines.NMilitary.AIR_SUPPORT_BASE = 0.35 --- 0.25 CAS IS GOLD
 ---NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_DEFENSE_STEEPNESS = 112 --- Still vanilla value might want to fiddle around with the number though
@@ -182,7 +182,7 @@ NDefines.NAir.ACE_WING_SIZE_MAX_BONUS = 1
 NDefines.NAir.STRATEGIC_BOMBER_NUKE_AIR_SUPERIORITY = 0.90
 NDefines.NAir.NAVAL_STRIKE_DAMAGE_TO_STR = 1.0
 NDefines.NAir.NAVAL_KAMIKAZE_DAMAGE_MULT = 5.0  -- vanilla is like 20
-NDefines.NAir.NAVAL_STRIKE_DAMAGE_TO_ORG = 1.0
+NDefines.NAir.NAVAL_STRIKE_DAMAGE_TO_ORG = 1.5
 NDefines.NAir.AA_INDUSTRY_AIR_DAMAGE_FACTOR = -0.13 -- -0.12	5x levels = 65% defense from bombing
 NDefines.NAir.EFFICIENCY_REGION_CHANGE_DAILY_GAIN_TACTICAL_BOMBER =	0.1	-- base 0.192 How much efficiency to regain per day. Gain applied hourly.
 NDefines.NAir.AIR_COMBAT_FINAL_DAMAGE_SCALE = 0.3 -- 0.015	 % how many max disrupted only planes are allowed to die in a single combat
@@ -190,7 +190,7 @@ NDefines.NAir.ANTI_AIR_MAXIMUM_DAMAGE_REDUCTION_FACTOR = 0.60 -- .75 Maximum dam
 NDefines.NAir.AIR_MORE_GROUND_CREWS_COST = 500.0 -- Disables ground crews. They're cancerous. --- Definietly are cancerous
 NDefines.NAir.ANTI_AIR_PLANE_DAMAGE_FACTOR = 0.6
 NDefines.NAir.NAVAL_STRIKE_DETECTION_BALANCE_FACTOR = 0.5		-- Value used to scale the surface_visibility stats to balance the gameplay, so 100% detection chance still won't spam the strikes.
-	
+NDefines.NAir.NAVAL_STRIKE_CARRIER_MULTIPLIER = 3.75         -- damage bonus when planes are in naval combat where their carrier is present (and can thus sortie faster and more effectively)	
 
 ---XP for leaders
 NDefines.NMilitary.FIELD_MARSHAL_XP_RATIO = 0

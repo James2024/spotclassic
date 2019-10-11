@@ -8888,6 +8888,38 @@ operations = {
 			transfer_state  = 182
 		}
 	}
+	
+	take_rhodes = {
+		
+		icon = generic_operation
+		
+		allowed = {
+			tag = ENG
+		}
+		
+		visible = {
+			tag = ENG
+			has_war_with = GER
+
+		}
+		
+		fire_only_once = yes
+		
+		cost = 25
+		
+		available = {
+			NOT = {
+				164 = { 
+					is_controlled_by = ITA
+				}
+			}
+		}
+		
+		complete_effect = {
+			transfer_state  = 164
+		}
+	}
+
 
 	operation_fork = {
 

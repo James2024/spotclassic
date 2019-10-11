@@ -16,8 +16,9 @@ NDefines.NDiplomacy.NUM_DAYS_TO_ENABLE_KICKING_NEW_MEMBERS_OF_FACTION = 0
 NDefines.NDiplomacy.NUM_DAYS_TO_ENABLE_REINVITE_KICKED_NATIONS = 0
 NDefines.NDiplomacy.FRONT_IS_DANGEROUS = 0
 
----Country #aracde style gameplay
-NDefines.NCountry.VP_TO_SUPPLY_BASE = 2
+---Country #arcade style gameplay
+NDefines.NBuildings.INFRA_TO_SUPPLY = 2.5
+NDefines.NCountry.VP_TO_SUPPLY_BASE = 1.5
 NDefines.NCountry.SUPPLY_PATH_MAX_DISTANCE = 8
 NDefines.NCountry.REINFORCEMENT_EQUIPMENT_DELIVERY_SPEED = 3
 NDefines.NCountry.REINFORCEMENT_MANPOWER_DELIVERY_SPEED = 140
@@ -210,7 +211,6 @@ NDefines.NMilitary.XP_GAIN_FOR_SHATTERING = 0.0
 ---Building
 NDefines.NBuildings.MAX_SHARED_SLOTS = 40 --amount of potential max building slots in a state
 NDefines.NBuildings.MAX_BUILDING_LEVELS = 20			-- Max levels a building can have.
-NDefines.NBuildings.INFRA_TO_SUPPLY = 3
 
 ---AI
 NDefines.NAI.DIPLOMACY_ACCEPT_ATTACHE_BASE = 100

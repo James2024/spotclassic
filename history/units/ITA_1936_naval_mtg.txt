@@ -76,10 +76,11 @@ units= {
 			ship = { name = "RI Bartolomeo Colleoni" definition = light_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = ITA version_name = "Giussano Class" } } } 
 			# III Divisione Incrociatori
 			ship = { name = "RI Bolzano" definition = heavy_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = ITA version_name = "Bolzano Class" } } } 
-			ship = { name = "RI Spaghet" definition = heavy_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = ITA version_name = "Bolzano Class" } } } 
-			ship = { name = "RI Spaghet 2" definition = heavy_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = ITA version_name = "Bolzano Class" } } } 
-			ship = { name = "RI Spaghet 3" definition = heavy_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = ITA version_name = "Bolzano Class" } } } 
-			ship = { name = "RI Spaghet 4" definition = heavy_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = ITA version_name = "Bolzano Class" } } } 
+			ship = { name = "RI Spaghet" definition = heavy_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = ITA version_name = "Spaghet" } } } 
+			ship = { name = "RI Spaghet 2" definition = heavy_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = ITA version_name = "Spaghet" } } } 
+			ship = { name = "RI Spaghet 3" definition = heavy_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = ITA version_name = "Spaghet" } } } 
+			ship = { name = "RI Spaghet 4" definition = heavy_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = ITA version_name = "Spaghet" } } } 
+			ship = { name = "RI Spaghet 5" definition = heavy_cruiser equipment = { ship_hull_cruiser_2 = { amount = 1 owner = ITA version_name = "Spaghet" } } } 
 			ship = { name = "RI Trento" definition = heavy_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = ITA version_name = "Bolzano Class" } } } 
 			ship = { name = "RI Trieste" definition = heavy_cruiser equipment = { ship_hull_cruiser_1 = { amount = 1 owner = ITA version_name = "Bolzano Class" } } } 
 			# VI Divisione Incrociatori

@@ -173,7 +173,7 @@ NDefines.NMilitary.ANTI_AIR_TARGETTING_TO_CHANCE = 0.025 --0.07
 NDefines.NAir.COMBAT_MULTIPLANE_CAP = 2 --- 3 -> 1.5
 NDefines.NAir.DISRUPTION_FACTOR = 5  --- (4 -> 5)
 NDefines.NAir.ESCORT_FACTOR = 2.5 -- (2 -> 2.5)
-NDefines.NAir.AIR_DEPLOYMENT_DAYS = 1							-- Days to deploy one air wing
+NDefines.NAir.AIR_DEPLOYMENT_DAYS = 0							-- Days to deploy one air wing
 NDefines.NAir.ACE_EARN_CHANCE_BASE = 0.01                        -- Base chance % for ace pilot to be created. Happens only when successfully kill airplane/ship or damage the buildings.
 NDefines.NAir.COMBAT_DAMAGE_SCALE = 0.2  -- Higher value = more shot down planes base 0.1
 NDefines.NAir.ANTI_AIR_PLANE_DAMAGE_CHANCE = 0.075	-- 0.1 base Anti Air Gun hit chance

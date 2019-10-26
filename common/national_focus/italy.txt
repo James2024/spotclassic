@@ -1208,6 +1208,25 @@ focus_tree = {
 			}
 		}
 	}
+	focus = {
+		id = ITA_improved_dockyards
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		relative_position_id = ITA_carrier_effort
+		prerequisite = { focus = ITA_carrier_effort focus = ITA_capital_ships }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			navy_experience = 25
+			add_ideas = ITA_atlantic_fleet
+		}
+	}
 
 	focus = {
 		id = ITA_atlantic_fleet
@@ -1240,25 +1259,7 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = ITA_improved_dockyards
-		icon = GFX_goal_generic_navy_doctrines_tactics
-		relative_position_id = ITA_carrier_effort
-		prerequisite = { focus = ITA_carrier_effort focus = ITA_capital_ships }
-		x = 1
-		y = 1
-		cost = 5
-		ai_will_do = {
-			factor = 1
-		}
 
-		available_if_capitulated = yes
-
-		completion_reward = {
-			navy_experience = 25
-			add_ideas = ITA_atlantic_fleet
-		}
-	}
 
 	focus = {
 		id = ITA_marines_and_landing_craft

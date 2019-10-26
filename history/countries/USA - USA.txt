@@ -279,6 +279,7 @@ add_ideas = {
 	free_trade
 	home_of_the_free
 	inexperienced_army
+	ref_stop
 }
 
 

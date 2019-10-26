@@ -93,6 +93,32 @@ USA_island_hopping = {
 		}
 	}
 operations = {
+
+	ref_stop_dec = {
+		icon = generic_operation
+		
+		available = {
+			has_war_with = JAP
+		}
+		
+		cost = 0
+		
+		fire_only_once = yes
+		
+		visible = {
+			OR = {
+				tag = BRA
+				tag = USA
+				tag = ENG
+				tag = CAN
+			}
+		}
+		
+		complete_effect = {
+			remove_ideas = ref_stop
+		}
+	}
+	
 	USA_torch_decision = { 
 		icon = generic_operation
 		

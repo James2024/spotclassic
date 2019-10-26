@@ -7,6 +7,7 @@ add_ideas = {
 	isolation
 	BRA_rural_north
 	BRA_agricultural_regions
+	ref_stop
 }
 
 oob = "BRA_1936"
